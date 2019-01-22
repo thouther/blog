@@ -139,7 +139,7 @@
 
     <div id="article-banner">
   <h2>Hexo部署到VPS全流程</h2>
-  <p class="post-date">2018-11-15</p>
+  <p class="post-date">2019-01-21</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,90 +147,7 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><blockquote>
-<p>第一部分: 服务器环境搭建，包括安装 Git 、Nginx配置 、创建 git 用户 。</p>
-</blockquote>
-<blockquote>
-<p>第二部分: 本地Hexo初始化， 包括安装 NodeJS 、hexo-cli, 生成本地静态网站</p>
-</blockquote>
-<blockquote>
-<p>第三部分: 使用Git自动化部署发布博客</p>
-</blockquote>
-<hr>
-<h1 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1. 安装node.js"></a>1. 安装node.js</h1><h2 id="1-1-通过epel可以快捷安装node-js"><a href="#1-1-通过epel可以快捷安装node-js" class="headerlink" title="1.1 通过epel可以快捷安装node.js:"></a>1.1 通过epel可以快捷安装node.js:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">yum install -y nodejs</span><br></pre></td></tr></table></figure>
-<h2 id="1-2-升级node-js至最新版"><a href="#1-2-升级node-js至最新版" class="headerlink" title="1.2 升级node.js至最新版"></a>1.2 升级node.js至最新版</h2><p>【升级报错】<br>安装yum工具包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install</span><br><span class="line">yum-utils</span><br></pre></td></tr></table></figure></p>
-<p>安装或更新openssl</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install openssl</span><br><span class="line">yum -y update openssl</span><br></pre></td></tr></table></figure>
-<p>启用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --enable cr</span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
-<p>【升级问题解决】<br>安装n        </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n</span><br></pre></td></tr></table></figure>
-<p>n是nodejs管理工具，Github: <a href="https://github.com/tj/n" target="_blank" rel="noopener">https://github.com/tj/n</a><br>安装最新版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n latest</span><br></pre></td></tr></table></figure></p>
-<p>【版本切换】<br>查看 node 当前安装路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">which node</span><br><span class="line">/usr/local/bin/node</span><br></pre></td></tr></table></figure></p>
-<p>编辑环境配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>将下面两行代码插入到文件末尾：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export N_PREFIX=/usr/local #node实际安装位置</span><br><span class="line">export PATH=$N_PREFIX/bin:$PATH</span><br><span class="line">:wq保存退出</span><br></pre></td></tr></table></figure></p>
-<p>执行source使修改生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>最后再查看版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></p>
-<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v11.1.0</span><br></pre></td></tr></table></figure></p>
-<p>【问题解决】<br>参考：<a href="https://segmentfault.com/a/1190000015302680" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015302680</a></p>
-<h1 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2. 安装Git"></a>2. 安装Git</h1><p>Centos7中自带git，直接下一步</p>
-<h2 id="2-1-升级Git至最新版"><a href="#2-1-升级Git至最新版" class="headerlink" title="2.1 升级Git至最新版"></a>2.1 升级Git至最新版</h2><p>首先安装Git依赖包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure></p>
-<p>删除已有的git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure></p>
-<p>下载&amp;安装Git源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.19.1.tar.gz</span><br><span class="line">tar xzf git-2.19.1.tar.gz</span><br><span class="line"></span><br><span class="line">cd git-2.19.1</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure></p>
-<p>检查版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line">git version 2.19.1</span><br></pre></td></tr></table></figure></p>
-<p>【done】</p>
-<h1 id="3-安装Nginx"><a href="#3-安装Nginx" class="headerlink" title="3. 安装Nginx"></a>3. 安装Nginx</h1><p>添加Nginx到YUM源</p>
-<p>添加CentOS 7 Nginx yum资源库,打开终端,使用以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<p>安装Nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></table></figure></p>
-<p>启动Nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx.service</span><br></pre></td></tr></table></figure></p>
-<p>打开域名IP，显示Welcome to Nginx</p>
-<h3 id="3-1-配置Nginx"><a href="#3-1-配置Nginx" class="headerlink" title="3.1 配置Nginx"></a>3.1 配置Nginx</h3><p>修改/etc/nginx/conf.d/default.conf的server_name，保存退出<br>查看配置是否有错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-2-Nginx运行"><a href="#3-2-Nginx运行" class="headerlink" title="3.2 Nginx运行"></a>3.2 Nginx运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nginx</span><br><span class="line">Active: active (running)</span><br></pre></td></tr></table></figure>
-<h1 id="4-创建git用户"><a href="#4-创建git用户" class="headerlink" title="4. 创建git用户"></a>4. 创建git用户</h1><p>创建用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br></pre></td></tr></table></figure></p>
-<p>设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd git</span><br></pre></td></tr></table></figure></p>
-<p>改变权限值用于读写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 740 /etc/sudoers</span><br></pre></td></tr></table></figure></p>
-<p>赋予sudo权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sudoers</span><br></pre></td></tr></table></figure></p>
-<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root ALL=(ALL:ALL) ALL</span><br><span class="line">git ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></p>
-<p>修改回文件权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 440 /etc/sudoers</span><br></pre></td></tr></table></figure></p>
-<p>【补充】<br>第一次使用输入信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name+空格+你的名字</span><br><span class="line">git config --global user.email+空格+你的邮箱</span><br></pre></td></tr></table></figure></p>
-<h1 id="5-配置ssh登陆"><a href="#5-配置ssh登陆" class="headerlink" title="5. 配置ssh登陆"></a>5. 配置ssh登陆</h1><p>生成密钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure></p>
-<p>直接回车会在~/.ssh目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /root/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /root/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure></p>
-<p>密钥下载到本地<br>公钥改名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd .ssh</span><br><span class="line">cp id_rsa.pub authorized_keys</span><br><span class="line">chmod 700 authorized_keys</span><br></pre></td></tr></table></figure></p>
-<p>修改sshd_config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure></p>
-<p>重启ssh服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure></p>
-<p>参考：<a href="https://www.jianshu.com/p/b1eeb3f1a2c1" target="_blank" rel="noopener">https://www.jianshu.com/p/b1eeb3f1a2c1</a></p>
-<h1 id="6-切换git用户，配置ssh"><a href="#6-切换git用户，配置ssh" class="headerlink" title="6. 切换git用户，配置ssh"></a>6. 切换git用户，配置ssh</h1><p>切换su git<br>切换到git用户目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git</span><br></pre></td></tr></table></figure></p>
-<p>创建.ssh文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.ssh</span><br></pre></td></tr></table></figure></p>
-<p>创建authorized_keys文件并编辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
-<p>修改权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~/.ssh/authorzied_keys</span><br><span class="line">chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure></p>
-<h1 id="7-建立git裸库"><a href="#7-建立git裸库" class="headerlink" title="7. 建立git裸库"></a>7. 建立git裸库</h1><p>回到git目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git</span><br></pre></td></tr></table></figure></p>
-<p>使用git用户创建git裸仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare blog.git</span><br></pre></td></tr></table></figure></p>
-<p>创建网站目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www</span><br><span class="line">mkdir blog</span><br><span class="line">chown git:git -R /var/www/blog</span><br></pre></td></tr></table></figure></p>
-<p>检查三个权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll -a /var/www/</span><br><span class="line">ll -a /home/git/</span><br></pre></td></tr></table></figure></p>
-<h2 id="7-1-使用git-hooks同步网站根目录"><a href="#7-1-使用git-hooks同步网站根目录" class="headerlink" title="7.1 使用git-hooks同步网站根目录"></a>7.1 使用git-hooks同步网站根目录</h2><p>配置Git Hooks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line">cd /home/git/blog.git/hooks</span><br><span class="line">vi post-receive</span><br></pre></td></tr></table></figure></p>
-<p>输入以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/home/git --git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
-<p>赋予权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x post-receive</span><br><span class="line">cd /home/git</span><br><span class="line">chown -R git:git blog.git</span><br></pre></td></tr></table></figure></p>
-<p>参考：<a href="http://www.zigma.cc/2018/06/27/%E3%80%90Hexo%E3%80%91%E4%BB%8EWordpress%E8%BD%ACHexo%E7%9A%84%E9%82%A3%E4%BA%9B%E6%B7%B1%E5%9D%91/#%C2%B7-%E6%B7%BB%E5%8A%A0Nginx%E5%88%B0YUM%E6%BA%90" target="_blank" rel="noopener">http://www.zigma.cc/2018/06/27/%E3%80%90Hexo%E3%80%91%E4%BB%8EWordpress%E8%BD%ACHexo%E7%9A%84%E9%82%A3%E4%BA%9B%E6%B7%B1%E5%9D%91/#%C2%B7-%E6%B7%BB%E5%8A%A0Nginx%E5%88%B0YUM%E6%BA%90</a></p>
-<h1 id="8-安装Hexo至VPS"><a href="#8-安装Hexo至VPS" class="headerlink" title="8. 安装Hexo至VPS"></a>8. 安装Hexo至VPS</h1><p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<p>初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo	hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>编辑<code>_config.yml</code></p>
-<p>安装git的push插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>安装本地服务器插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br></pre></td></tr></table></figure></p>
-<h1 id="9-安装Hexo至本地"><a href="#9-安装Hexo至本地" class="headerlink" title="9. 安装Hexo至本地"></a>9. 安装Hexo至本地</h1><p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<p>初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo	hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>编辑 <code>config.yml</code></p>
-<p>生成默认文件群</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<p>安装git的push插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>安装本地服务器插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="https://pengloo53.gitbooks.io/hexo/" target="_blank" rel="noopener">https://pengloo53.gitbooks.io/hexo/</a></p>
-<h1 id="10-部署要点"><a href="#10-部署要点" class="headerlink" title="10. 部署要点"></a>10. 部署要点</h1><p>1.本地的 <code>\hexo\blog</code><br>2.远程的 <code>/home/git/thouther</code><br>3.nginx的 <code>default.conf</code> 配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root   /home/git/thouther;</span><br></pre></td></tr></table></figure></p>
-<p>4.hooks里的 <code>post-receive</code> 配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git--work-tree=/home/git/thouther/--git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
-</section>
+    <section class="markdown-content"></section>
     <!-- Tags START -->
     
     <!-- Tags END -->
@@ -239,10 +156,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/11/14/whatthefuck/">
+      <a class="nav-left" href="/2019/01/21/hello-world/">
         <span class="nav-arrow">← </span>
         
-          whatthefuck
+          Hello World
         
       </a>
     
@@ -261,7 +178,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1-安装node-js"><span class="toc-nav-text">1. 安装node.js</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-1-通过epel可以快捷安装node-js"><span class="toc-nav-text">1.1 通过epel可以快捷安装node.js:</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-2-升级node-js至最新版"><span class="toc-nav-text">1.2 升级node.js至最新版</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2-安装Git"><span class="toc-nav-text">2. 安装Git</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-1-升级Git至最新版"><span class="toc-nav-text">2.1 升级Git至最新版</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3-安装Nginx"><span class="toc-nav-text">3. 安装Nginx</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-配置Nginx"><span class="toc-nav-text">3.1 配置Nginx</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-2-Nginx运行"><span class="toc-nav-text">3.2 Nginx运行</span></a></li></ol></li></ol></li></ol><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#4-创建git用户"><span class="toc-nav-text">4. 创建git用户</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#5-配置ssh登陆"><span class="toc-nav-text">5. 配置ssh登陆</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#6-切换git用户，配置ssh"><span class="toc-nav-text">6. 切换git用户，配置ssh</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#7-建立git裸库"><span class="toc-nav-text">7. 建立git裸库</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-1-使用git-hooks同步网站根目录"><span class="toc-nav-text">7.1 使用git-hooks同步网站根目录</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#8-安装Hexo至VPS"><span class="toc-nav-text">8. 安装Hexo至VPS</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#9-安装Hexo至本地"><span class="toc-nav-text">9. 安装Hexo至本地</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#10-部署要点"><span class="toc-nav-text">10. 部署要点</span></a></li>
+      <ol class="nav">none</ol>
     
   </div>
 </aside>
@@ -271,7 +188,7 @@
 
 <script>
   (function () {
-    var url = 'http://thouther.com/2018/11/15/Hexo部署到VPS全流程/';
+    var url = 'http://thouther.com/2019/01/21/Hexo部署到VPS全流程/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -355,7 +272,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://thouther.com/2018/11/15/Hexo部署到VPS全流程/';
+  var disqus_url = 'http://thouther.com/2019/01/21/Hexo部署到VPS全流程/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -371,7 +288,7 @@
 </div>
     <!-- <footer class="app-footer">
   <p class="copyright">
-    &copy; 2018 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
     <br>
     Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
   </p>
