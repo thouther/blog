@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thouther.com/"/>
-  <updated>2019-01-23T09:46:21.918Z</updated>
+  <updated>2019-01-23T12:57:57.525Z</updated>
   <id>http://thouther.com/</id>
   
   <author>
@@ -21,12 +21,28 @@
     <link href="http://thouther.com/2019/01/23/%E5%9C%A8Ubuntu%E4%B8%8B%E9%83%A8%E7%BD%B2Hexo%E5%88%B0VPS/"/>
     <id>http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/</id>
     <published>2019-01-23T09:46:21.000Z</published>
-    <updated>2019-01-23T09:46:21.918Z</updated>
+    <updated>2019-01-23T12:57:57.525Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成</p><ul><li>本地环境：<code>Ubuntu 18.04 LTS</code></li><li>VPS：<code>搬瓦工</code>+<code>万网域名</code></li></ul></blockquote><h1 id="本地部署Hexo"><a href="#本地部署Hexo" class="headerlink" title="本地部署Hexo"></a>本地部署Hexo</h1><p>Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown(或其他渲染引擎)解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p><h2 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h2><ul><li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a><br>Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。<br>通过终端进行安装<br>安装Git：<code>sudo apt install git</code><br>更新Git：<br><code>add-apt-repository ppa:git-core/ppa</code>添加PPA源<br><code>sudo apt update</code><br><code>sudo apt install git</code><br>查看Git版本：<code>git --version</code></li><li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。 Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。<br>先安装npm (NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题)<br><code>sudo apt install npm</code><br>安装Node.js：<code>sudo apt install Nodejs</code><br>更新Node.js：<br><code>curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -</code><br><code>sudo apt-get install -y nodejs</code><br>查看Node.js版本：<code>node -v</code></li></ul>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本地环境：&lt;code&gt;Ubuntu 18.04 LTS&lt;/
+      
+    
     </summary>
     
+    
+      <category term="避坑" scheme="http://thouther.com/tags/%E9%81%BF%E5%9D%91/"/>
+    
+      <category term="Ubuntu" scheme="http://thouther.com/tags/Ubuntu/"/>
+    
+      <category term="hexo" scheme="http://thouther.com/tags/hexo/"/>
     
   </entry>
   
