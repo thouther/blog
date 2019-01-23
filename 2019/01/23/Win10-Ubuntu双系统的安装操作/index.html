@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="thouther&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Win10/Ubuntu双系统的安装操作 | thouther
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>thouther</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Win10/Ubuntu双系统的安装操作</h2>
+  <p class="post-date">2019-01-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="双系统-or-虚拟机？"><a href="#双系统-or-虚拟机？" class="headerlink" title="双系统 or 虚拟机？"></a>双系统 or 虚拟机？</h1><p>双系统。<br>一个是真实的操作系统，另一个只是Windows上的模拟器。<br>如果不想去面对双系统环境下有点复杂的硬盘数据管理问题，虚拟机的存在就是为我们提供便利的权宜之计。<br>但是如果想更深入去感受Linux的魅力，首先你要做的就是。<br><strong>彻底告别Windows</strong></p>
+<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><p>完全投身Linux之前，各方面的准备必须充足，毕竟涉及到关键的硬盘数据，网上据说因为装双系统把windows也赔进去的选手不在少数。</p>
+<h2 id="一个Ubuntu-18-04-LTS-启动盘"><a href="#一个Ubuntu-18-04-LTS-启动盘" class="headerlink" title="一个Ubuntu 18.04 LTS 启动盘"></a>一个Ubuntu 18.04 LTS 启动盘</h2><p><strong>1.一个大于4G的U盘</strong></p>
+<p><strong>2.从Ubuntu官网下载18.04 LTS的镜像</strong><br><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">https://www.ubuntu.com/download/desktop</a></p>
+<p><strong>3.利用镜像工具将ISO写入U盘中</strong><br>这里采用的是UltraISO，过程非常简单，写入之前需要进行U盘格式化。<br><a href="https://www.ultraiso.com/" target="_blank" rel="noopener">https://www.ultraiso.com/</a></p>
+<p><strong>4.提前下载好必备的deb安装包</strong><br>不要误会，Ubuntu安装完成后，只要连接wifi，是可以直接正常联网的。<br>所以在<strong>正常联网</strong>的环境下还需要提前准备什么呢？这点大家各有各的手段。<br>对我来说是Chrome+Proxy SwitchOmega+electron-ssr的组合combo，完全避开国内那些烦人的下载站。</p>
+<h2 id="为Ubuntu系统进行硬盘分区"><a href="#为Ubuntu系统进行硬盘分区" class="headerlink" title="为Ubuntu系统进行硬盘分区"></a>为Ubuntu系统进行硬盘分区</h2><p><strong>1.在Win10的磁盘管理中进行分区</strong><br>压缩卷之后获得一块<strong>未分配空间</strong>即可，安装Ubuntu的时候也容易识别。<br>建议分配至少100G，既然是双系统，最好不要吝啬分配Ubuntu的磁盘空间，免得后期容量不够抓襟见肘。</p>
+<p><strong>2.学习Ubuntu文件系统的基本知识</strong><br><a href="https://www.aidandai.com/posts/ubuntu-file-system-introduce.html" target="_blank" rel="noopener">https://www.aidandai.com/posts/ubuntu-file-system-introduce.html</a><br>了解文件系统是认识Linux的第一步，也是非常重要的一环。<br>只要做好这方面的功课，便可以顺利避开后期安装中令人头疼的内部硬盘分配问题。</p>
+<p>后面会涉及到以下四个重要分区</p>
+<ul>
+<li><p>/: 是一切目录的起点，如大树的主干。其它的所有目录都是基于树干的枝条或者枝叶。在 ubuntu 中硬件设备如光驱、软驱、usb 设备都将挂载到这颗繁茂的枝干之下，作为文件来管理。<br>相当于Windows的C盘，同时也是所有软件安装的位置，不同于Windows可以指定任意安装路径，Linux下的软件是散布各个对应的功能文件夹之中。</p>
+<p><strong>分配建议：30G以上</strong>，第一次安装时不知道看了哪个教程只分配了10G，以为这个真的只是“C盘”，折腾了一天之后越想越不对，第二天面对剩余空间为0的系统盘符，场面十分尴尬。</p>
+</li>
+<li><p>swap: 交换空间。当系统物理内存吃紧时，Linux会将内存中不常访问的数据保存到swap上，这样系统就有更多的物理内存为各个进程服务，而当系统需要访问swap上存储的内容时，再将swap上的数据加载到内存中。<br>简单来说就是相当于虚拟内存的存在<br>相关知识：<br><a href="https://www.jianshu.com/p/a2d2f284fc0a" target="_blank" rel="noopener">物理内存／虚拟内存／swap分区</a><br><a href="https://segmentfault.com/a/1190000008125116" target="_blank" rel="noopener">Linux交换空间（swap space）</a></p>
+<p><strong>分配建议：系统内存的1.5倍</strong></p>
+</li>
+<li><p>/boot: 这里存放的是Linux内核和系统启动文件。关系到电脑启动后对于双系统的引导问题，需要谨慎对待</p>
+<p><strong>分配建议：500M</strong>，一些安装旧版Ubuntu教程只分配200M，结果自己用18.04亲测后安装报错，网上一查可能是boot分配空间太小，以防万一还是分配500M比较保险</p>
+</li>
+<li><p>/home: 用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</p>
+<p><strong>分配建议：剩下全部</strong></p>
+</li>
+</ul>
+<h1 id="安装阶段"><a href="#安装阶段" class="headerlink" title="安装阶段"></a>安装阶段</h1><p>掌握完所有必要的内容，可以完全关闭Windows，正式进入Ubuntu</p>
+<h2 id="BIOS设置"><a href="#BIOS设置" class="headerlink" title="BIOS设置"></a>BIOS设置</h2><p><strong>1.进入开机后的启动菜单</strong></p>
+<p><strong>2.关闭Security Boot（安全启动）</strong></p>
+<p><strong>3.将U盘作为首选启动项</strong></p>
+<h2 id="正式安装Ubuntu"><a href="#正式安装Ubuntu" class="headerlink" title="正式安装Ubuntu"></a>正式安装Ubuntu</h2><p><strong>1.磁盘分区</strong><br>前面的基础安装第三方安装影响不大，关键在于中间的<strong>Ubuntu磁盘分区</strong><br>一定要选择其他选项，亲自为系统进行分区<br><img src="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup2.png" alt=""></p>
+<p>按照上面提到的内容，得出以下分区规划</p>
+<table>
+<thead>
+<tr>
+<th>大小</th>
+<th>新分区的类型</th>
+<th>新分区的位置</th>
+<th>用于</th>
+<th>挂载点</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>35G</td>
+<td>主分区</td>
+<td>空间起始位置</td>
+<td>Ext4日志文件系统</td>
+<td>/</td>
+<td>存放系统和软件</td>
+</tr>
+<tr>
+<td>12G</td>
+<td>逻辑分区</td>
+<td>空间起始位置</td>
+<td>交换空间</td>
+<td>swap</td>
+<td>虚拟内存</td>
+</tr>
+<tr>
+<td>500M</td>
+<td>逻辑分区</td>
+<td>空间起始位置</td>
+<td>Ext4日志文件系统</td>
+<td>/boot</td>
+<td>引导分区</td>
+</tr>
+<tr>
+<td>剩下</td>
+<td>逻辑分区</td>
+<td>空间起始位置</td>
+<td>Ext4日志文件系统</td>
+<td>/home</td>
+<td>用户存储数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2.安装启动引导器</strong><br>分配完空间后不要贪一时手速，还有下图的一个重要操作<br><img src="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup1.png" alt=""></p>
+<p>结束上面两个环节后，基本上大功告成了，接下来静候佳音即可</p>
+<h1 id="设置引导（可选）"><a href="#设置引导（可选）" class="headerlink" title="设置引导（可选）"></a>设置引导（可选）</h1><p>如果想让Ubuntu作为第一启动项的话，需要切回Win10，下载EasyBCD（采用UEFI启动的电脑得使用另一个软件EasyUEFI）进行设置</p>
+<p>个人认为这个环节并非必要，虽然每次重启都得进入启动菜单，但是保留Win10作为第一启动项可以保障一定限度的系统安全。</p>
+<p>后期如果想卸载Ubuntu，可以直接从Win10的磁盘管理进行删除卷，避免出现误删引导文件的情况</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#避坑">
+    <span class="tag-code">避坑</span>
+  </a>
+
+  <a href="/tags#Ubuntu">
+    <span class="tag-code">Ubuntu</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/01/22/2019，新环境，新的开始/">
+        <span class="nav-arrow">← </span>
+        
+          2019，新环境，新的开始
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#双系统-or-虚拟机？"><span class="toc-nav-text">双系统 or 虚拟机？</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#准备阶段"><span class="toc-nav-text">准备阶段</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一个Ubuntu-18-04-LTS-启动盘"><span class="toc-nav-text">一个Ubuntu 18.04 LTS 启动盘</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#为Ubuntu系统进行硬盘分区"><span class="toc-nav-text">为Ubuntu系统进行硬盘分区</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装阶段"><span class="toc-nav-text">安装阶段</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#BIOS设置"><span class="toc-nav-text">BIOS设置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#正式安装Ubuntu"><span class="toc-nav-text">正式安装Ubuntu</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#设置引导（可选）"><span class="toc-nav-text">设置引导（可选）</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "thouther";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Win10/Ubuntu双系统的安装操作",
+        owner: "thouther",
+        repo: "",
+        oauth: {
+          client_id: "",
+          client_secret: ""
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <!-- <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+ -->
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
