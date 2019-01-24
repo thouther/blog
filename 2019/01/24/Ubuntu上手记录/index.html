@@ -10,7 +10,7 @@
   
   <title>
     
-      thouther
+      Ubuntu上手记录 | thouther
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,52 +138,160 @@
 </header>
 
     <div id="article-banner">
-  <h2>Archives</h2>
-  <p class="post-date">文章归档</p>
+  <h2>Ubuntu上手记录</h2>
+  <p class="post-date">2019-01-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
 </div>
-<main class="app-body" id="archives">
-  
-  
-  
-    <section class="time-section">
-  <h1 class="section-year">
-    2019
-  </h1>
-  <div class="section-list">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"></section>
+    <!-- Tags START -->
     
-    
-      <div class="section-list-item">
-        <a href="/2019/01/24/Ubuntu上手记录/" class="archive-title">Ubuntu上手记录</a>
-        <p class="archive-date">01-24</p>
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Ubuntu">
+    <span class="tag-code">Ubuntu</span>
+  </a>
+
       </div>
     
-      <div class="section-list-item">
-        <a href="/2019/01/23/在Ubuntu下部署Hexo到VPS/" class="archive-title">在Ubuntu下部署Hexo到VPS</a>
-        <p class="archive-date">01-23</p>
-      </div>
+    <!-- Tags END -->
+    <!-- NAV START -->
     
-      <div class="section-list-item">
-        <a href="/2019/01/23/Win10-Ubuntu双系统的安装操作/" class="archive-title">Win10/Ubuntu双系统的安装操作</a>
-        <p class="archive-date">01-23</p>
-      </div>
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <div class="section-list-item">
-        <a href="/2019/01/22/2019，新环境，新的开始/" class="archive-title">2019，新环境，新的开始</a>
-        <p class="archive-date">01-22</p>
-      </div>
+      <a class="nav-left" href="/2019/01/23/在Ubuntu下部署Hexo到VPS/">
+        <span class="nav-arrow">← </span>
+        
+          在Ubuntu下部署Hexo到VPS
+        
+      </a>
+    
     
   </div>
-</section>
+
+    <!-- NAV END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
   
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
 </main>
 
 <script>
   (function () {
-    var url = 'http://thouther.com/tags/避坑/index.html';
-    $('#article-banner').geopattern(url);
-    $('.header').removeClass('fixed-header');
+    var url = 'http://thouther.com/2019/01/24/Ubuntu上手记录/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "thouther";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Ubuntu上手记录",
+        owner: "thouther",
+        repo: "",
+        oauth: {
+          client_id: "",
+          client_secret: ""
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
   })();
 </script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://thouther.com/2019/01/24/Ubuntu上手记录/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
