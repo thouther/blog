@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="双系统 or 虚拟机？一个是真实的操作系统，另一个只是Windows上的模拟器。如果不想去面对双系统环境下有点复杂的硬盘数据管理问题，虚拟机的存在就是为我们提供便利的权宜之计。但是如果想更深入去感受Linux的魅力，首先你要做的就是：彻底告别Windows！  准备阶段完全投身Linux之前，各方面的准备必须充足，毕竟涉及到关键的硬盘数据，网上据说因为装双系统把windows也赔进去的选手不在少">
+<meta name="keywords" content="避坑,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win10&#x2F;Ubuntu双系统的安装操作">
+<meta property="og:url" content="http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/index.html">
+<meta property="og:site_name" content="thouther">
+<meta property="og:description" content="双系统 or 虚拟机？一个是真实的操作系统，另一个只是Windows上的模拟器。如果不想去面对双系统环境下有点复杂的硬盘数据管理问题，虚拟机的存在就是为我们提供便利的权宜之计。但是如果想更深入去感受Linux的魅力，首先你要做的就是：彻底告别Windows！  准备阶段完全投身Linux之前，各方面的准备必须充足，毕竟涉及到关键的硬盘数据，网上据说因为装双系统把windows也赔进去的选手不在少">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup2.png">
+<meta property="og:image" content="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup1.png">
+<meta property="og:updated_time" content="2019-01-24T02:52:29.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Win10&#x2F;Ubuntu双系统的安装操作">
+<meta name="twitter:description" content="双系统 or 虚拟机？一个是真实的操作系统，另一个只是Windows上的模拟器。如果不想去面对双系统环境下有点复杂的硬盘数据管理问题，虚拟机的存在就是为我们提供便利的权宜之计。但是如果想更深入去感受Linux的魅力，首先你要做的就是：彻底告别Windows！  准备阶段完全投身Linux之前，各方面的准备必须充足，毕竟涉及到关键的硬盘数据，网上据说因为装双系统把windows也赔进去的选手不在少">
+<meta name="twitter:image" content="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup2.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Win10/Ubuntu双系统的安装操作</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/01/22/2019，新环境，新的开始/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&text=Win10/Ubuntu双系统的安装操作"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&is_video=false&description=Win10/Ubuntu双系统的安装操作"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Win10/Ubuntu双系统的安装操作&body=Check out this article: http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&name=Win10/Ubuntu双系统的安装操作&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备阶段"><span class="toc-number">1.</span> <span class="toc-text">准备阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个Ubuntu-18-04-LTS-启动盘"><span class="toc-number">1.1.</span> <span class="toc-text">一个Ubuntu 18.04 LTS 启动盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为Ubuntu系统进行硬盘分区"><span class="toc-number">1.2.</span> <span class="toc-text">为Ubuntu系统进行硬盘分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装阶段"><span class="toc-number">2.</span> <span class="toc-text">安装阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BIOS设置"><span class="toc-number">2.1.</span> <span class="toc-text">BIOS设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正式安装Ubuntu"><span class="toc-number">2.2.</span> <span class="toc-text">正式安装Ubuntu</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置引导（可选）"><span class="toc-number">3.</span> <span class="toc-text">设置引导（可选）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#扩展阅读"><span class="toc-number">4.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Win10/Ubuntu双系统的安装操作
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">thouther</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-01-23T09:32:38.000Z" itemprop="datePublished">2019-01-23</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/tags/避坑/">避坑</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>双系统 or 虚拟机？<br>一个是真实的操作系统，另一个只是Windows上的模拟器。<br>如果不想去面对双系统环境下有点复杂的硬盘数据管理问题，虚拟机的存在就是为我们提供便利的权宜之计。<br>但是如果想更深入去感受Linux的魅力，首先你要做的就是：<br><strong>彻底告别Windows！</strong></p>
+</blockquote>
+<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><p>完全投身Linux之前，各方面的准备必须充足，毕竟涉及到关键的硬盘数据，网上据说因为装双系统把windows也赔进去的选手不在少数。</p>
+<h2 id="一个Ubuntu-18-04-LTS-启动盘"><a href="#一个Ubuntu-18-04-LTS-启动盘" class="headerlink" title="一个Ubuntu 18.04 LTS 启动盘"></a>一个Ubuntu 18.04 LTS 启动盘</h2><p><strong>1.一个大于4G的U盘</strong></p>
+<p><strong>2.从Ubuntu官网下载18.04 LTS的镜像</strong><br><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">https://www.ubuntu.com/download/desktop</a></p>
+<p><strong>3.利用镜像工具将ISO写入U盘中</strong><br>这里采用的是UltraISO，过程非常简单，写入之前需要进行U盘格式化。<br><a href="https://www.ultraiso.com/" target="_blank" rel="noopener">https://www.ultraiso.com/</a></p>
+<p><strong>4.提前下载好必备的deb安装包</strong><br>不要误会，Ubuntu安装完成后，只要连接wifi，是可以直接正常联网的。<br>所以在<strong>正常联网</strong>的环境下还需要提前准备什么呢？这点大家各有各的手段。<br>对我来说是Chrome+Proxy SwitchOmega+electron-ssr的组合combo，完全避开国内那些烦人的下载站。</p>
+<h2 id="为Ubuntu系统进行硬盘分区"><a href="#为Ubuntu系统进行硬盘分区" class="headerlink" title="为Ubuntu系统进行硬盘分区"></a>为Ubuntu系统进行硬盘分区</h2><p><strong>1.在Win10的磁盘管理中进行分区</strong><br>压缩卷之后获得一块<strong>未分配空间</strong>即可，安装Ubuntu的时候也容易识别。<br>建议分配至少100G，既然是双系统，最好不要吝啬分配Ubuntu的磁盘空间，免得后期容量不够抓襟见肘。</p>
+<p><strong>2.学习Ubuntu文件系统的基本知识</strong><br>了解文件系统是认识Linux的第一步，也是非常重要的一环。<br>只要做好这方面的功课，便可以顺利避开后期安装中令人头疼的内部硬盘分配问题。</p>
+<p>后面会涉及到以下四个重要分区</p>
+<ul>
+<li><p>/: 是一切目录的起点，如大树的主干。其它的所有目录都是基于树干的枝条或者枝叶。在 ubuntu 中硬件设备如光驱、软驱、usb 设备都将挂载到这颗繁茂的枝干之下，作为文件来管理。<br>相当于Windows的C盘，同时也是所有软件安装的位置，不同于Windows可以指定任意安装路径，Linux下的软件是散布各个对应的功能文件夹之中。</p>
+<p><strong>分配建议：30G以上</strong>，第一次安装时不知道看了哪个教程只分配了10G，以为这个真的只是“C盘”，折腾了一天之后越想越不对，第二天面对剩余空间为0的系统盘符，场面十分尴尬。</p>
+</li>
+<li><p>swap: 交换空间。当系统物理内存吃紧时，Linux会将内存中不常访问的数据保存到swap上，这样系统就有更多的物理内存为各个进程服务，而当系统需要访问swap上存储的内容时，再将swap上的数据加载到内存中。<br>简单来说就是相当于虚拟内存的存在<br>相关知识：<br><a href="https://www.jianshu.com/p/a2d2f284fc0a" target="_blank" rel="noopener">物理内存／虚拟内存／swap分区</a><br><a href="https://segmentfault.com/a/1190000008125116" target="_blank" rel="noopener">Linux交换空间（swap space）</a></p>
+<p><strong>分配建议：系统内存的1.5倍</strong></p>
+</li>
+<li><p>/boot: 这里存放的是Linux内核和系统启动文件。关系到电脑启动后对于双系统的引导问题，需要谨慎对待</p>
+<p><strong>分配建议：500M</strong>，一些安装旧版Ubuntu教程只分配200M，结果自己用18.04亲测后安装报错，网上一查可能是boot分配空间太小，以防万一还是分配500M比较保险</p>
+</li>
+<li><p>/home: 用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</p>
+<p><strong>分配建议：剩下全部</strong></p>
+</li>
+</ul>
+<h1 id="安装阶段"><a href="#安装阶段" class="headerlink" title="安装阶段"></a>安装阶段</h1><p>掌握完所有必要的内容，可以完全关闭Windows，正式进入Ubuntu</p>
+<h2 id="BIOS设置"><a href="#BIOS设置" class="headerlink" title="BIOS设置"></a>BIOS设置</h2><p><strong>1.进入开机后的启动菜单</strong></p>
+<p><strong>2.关闭Security Boot（安全启动）</strong></p>
+<p><strong>3.将U盘作为首选启动项</strong></p>
+<h2 id="正式安装Ubuntu"><a href="#正式安装Ubuntu" class="headerlink" title="正式安装Ubuntu"></a>正式安装Ubuntu</h2><p><strong>1.磁盘分区</strong><br>前面的基础安装第三方安装影响不大，关键在于中间的<strong>Ubuntu磁盘分区</strong><br>一定要选择其他选项，亲自为系统进行分区<br><img src="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup2.png" alt=""></p>
+<p>按照上面提到的内容，得出以下分区规划</p>
+<table>
+<thead>
+<tr>
+<th>大小</th>
+<th>新分区的类型</th>
+<th>新分区的位置</th>
+<th>用于</th>
+<th>挂载点</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>35G</td>
+<td>主分区</td>
+<td>空间起始位置</td>
+<td>Ext4日志文件系统</td>
+<td>/</td>
+<td>存放系统和软件</td>
+</tr>
+<tr>
+<td>12G</td>
+<td>逻辑分区</td>
+<td>空间起始位置</td>
+<td>交换空间</td>
+<td>swap</td>
+<td>虚拟内存</td>
+</tr>
+<tr>
+<td>500M</td>
+<td>逻辑分区</td>
+<td>空间起始位置</td>
+<td>Ext4日志文件系统</td>
+<td>/boot</td>
+<td>引导分区</td>
+</tr>
+<tr>
+<td>剩下</td>
+<td>逻辑分区</td>
+<td>空间起始位置</td>
+<td>Ext4日志文件系统</td>
+<td>/home</td>
+<td>用户存储数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2.安装启动引导器</strong><br>分配完空间后不要贪一时手速，还有下图的一个重要操作<br><img src="http://plqfyzi3q.bkt.clouddn.com/Ubuntu-setup1.png" alt=""></p>
+<p>结束上面两个环节后，基本上大功告成了，接下来静候佳音即可</p>
+<h1 id="设置引导（可选）"><a href="#设置引导（可选）" class="headerlink" title="设置引导（可选）"></a>设置引导（可选）</h1><p>如果想让Ubuntu作为第一启动项的话，需要切回Win10，下载EasyBCD（采用UEFI启动的电脑得使用另一个软件EasyUEFI）进行设置</p>
+<p>个人认为这个环节并非必要，虽然每次重启都得进入启动菜单，但是保留Win10作为第一启动项可以保障一定限度的系统安全。</p>
+<p>后期如果想卸载Ubuntu，可以直接从Win10的磁盘管理进行删除卷，避免出现误删引导文件的情况</p>
+<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86" target="_blank" rel="noopener">维基百科：文件系统层次结构标准</a>（Filesystem Hierarchy Standard）</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备阶段"><span class="toc-number">1.</span> <span class="toc-text">准备阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个Ubuntu-18-04-LTS-启动盘"><span class="toc-number">1.1.</span> <span class="toc-text">一个Ubuntu 18.04 LTS 启动盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为Ubuntu系统进行硬盘分区"><span class="toc-number">1.2.</span> <span class="toc-text">为Ubuntu系统进行硬盘分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装阶段"><span class="toc-number">2.</span> <span class="toc-text">安装阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BIOS设置"><span class="toc-number">2.1.</span> <span class="toc-text">BIOS设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正式安装Ubuntu"><span class="toc-number">2.2.</span> <span class="toc-text">正式安装Ubuntu</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置引导（可选）"><span class="toc-number">3.</span> <span class="toc-text">设置引导（可选）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#扩展阅读"><span class="toc-number">4.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&text=Win10/Ubuntu双系统的安装操作"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&is_video=false&description=Win10/Ubuntu双系统的安装操作"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Win10/Ubuntu双系统的安装操作&body=Check out this article: http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://thouther.com/2019/01/23/Win10-Ubuntu双系统的安装操作/&name=Win10/Ubuntu双系统的安装操作&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 thouther
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成  本地环境：Ubuntu 18.04 LTS VPS：CentOS7（搬瓦工+万网域名）   本地部署HexoHexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown(或其他渲染引擎)解析文章，在几秒内，即可利用靓丽的主">
+<meta name="keywords" content="避坑,Ubuntu,hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Ubuntu下部署Hexo到VPS">
+<meta property="og:url" content="http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/index.html">
+<meta property="og:site_name" content="thouther">
+<meta property="og:description" content="把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成  本地环境：Ubuntu 18.04 LTS VPS：CentOS7（搬瓦工+万网域名）   本地部署HexoHexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown(或其他渲染引擎)解析文章，在几秒内，即可利用靓丽的主">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-23T16:52:01.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Ubuntu下部署Hexo到VPS">
+<meta name="twitter:description" content="把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成  本地环境：Ubuntu 18.04 LTS VPS：CentOS7（搬瓦工+万网域名）   本地部署HexoHexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown(或其他渲染引擎)解析文章，在几秒内，即可利用靓丽的主">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>在Ubuntu下部署Hexo到VPS</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/01/24/Ubuntu上手记录/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&text=在Ubuntu下部署Hexo到VPS"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&is_video=false&description=在Ubuntu下部署Hexo到VPS"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在Ubuntu下部署Hexo到VPS&body=Check out this article: http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&name=在Ubuntu下部署Hexo到VPS&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本地部署Hexo"><span class="toc-number">1.</span> <span class="toc-text">本地部署Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">1.1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">配置Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPS部署Hexo"><span class="toc-number">2.</span> <span class="toc-text">VPS部署Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Nginx"><span class="toc-number">2.1.</span> <span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git-1"><span class="toc-number">2.2.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Git用户"><span class="toc-number">2.3.</span> <span class="toc-text">创建Git用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置ssh登陆"><span class="toc-number">2.4.</span> <span class="toc-text">配置ssh登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建git裸库"><span class="toc-number">2.5.</span> <span class="toc-text">创建git裸库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置git-hooks"><span class="toc-number">2.6.</span> <span class="toc-text">配置git-hooks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现自动化部署"><span class="toc-number">3.</span> <span class="toc-text">实现自动化部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结流程坑点"><span class="toc-number">4.</span> <span class="toc-text">总结流程坑点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-number">5.</span> <span class="toc-text">参考文章</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在Ubuntu下部署Hexo到VPS
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">thouther</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-01-23T09:46:21.000Z" itemprop="datePublished">2019-01-23</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/避坑/">避坑</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成</p>
+<ul>
+<li>本地环境：<code>Ubuntu 18.04 LTS</code></li>
+<li>VPS：<code>CentOS7</code>（搬瓦工+万网域名）</li>
+</ul>
+</blockquote>
+<h1 id="本地部署Hexo"><a href="#本地部署Hexo" class="headerlink" title="本地部署Hexo"></a>本地部署Hexo</h1><p>Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown(或其他渲染引擎)解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><blockquote>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a><br>Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。</p>
+</blockquote>
+<p>安装并更新Git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br><span class="line"></span><br><span class="line">add-apt-repository ppa:git-core/ppa</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure></p>
+<p>查看Git版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line">git version 2.20.1</span><br></pre></td></tr></table></figure></p>
+<p>使用GIt之前，需要输入以下信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name+空格+你的名字</span><br><span class="line">git config --global user.email+空格+你的邮箱</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><blockquote>
+<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。 Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</p>
+</blockquote>
+<p>先安装npm (NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm`</span><br></pre></td></tr></table></figure></p>
+<p>安装并更新Node.js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install Nodejs`</span><br><span class="line"></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure></p>
+<p>查看Node.js版本：`<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v10.15.0</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><p>建立一个Hexo专用文件夹：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo</span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">~~~bash</span><br><span class="line">通过npm安装Hexo并初始化：</span><br><span class="line">~~~bash</span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">Hexo int</span><br></pre></td></tr></table></figure></p>
+<p>至此本地部署工作完成，顺便测试下是否成功<br>输入<code>hexo server</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">^CINFO  Farewell</span><br></pre></td></tr></table></figure>
+<p>浏览器输入 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可访问默认主页</p>
+<h1 id="VPS部署Hexo"><a href="#VPS部署Hexo" class="headerlink" title="VPS部署Hexo"></a>VPS部署Hexo</h1><p>在Ubuntu上用终端<strong>Terminal</strong>和自带的文件管理器<strong>Nautilus</strong>就可以直连服务器，SSH和sftp管理操作一步到位，非常舒服√</p>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><blockquote>
+<p><a href="https://www.nginx.com/" target="_blank" rel="noopener">https://www.nginx.com/</a><br>Nginx是一个网页服务器，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。相较于Apache、lighttpd，Nginx具有占有内存少，稳定性高等优势。</p>
+</blockquote>
+<p>添加CentOS 7 Nginx yum资源库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>安装Nginx：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></table></figure></p>
+<p>启动nginx：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx.service</span><br></pre></td></tr></table></figure></p>
+<p>打开域名IP，显示Welcome to Nginx</p>
+<p>配置Nginx<br>修改<code>/etc/nginx/conf.d/default.conf</code>的<code>server_name</code>，保存退出<br>查看配置是否有错误：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t`</span><br></pre></td></tr></table></figure></p>
+<p>运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nginx</span><br><span class="line">Active: active (running)</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Git-1"><a href="#安装Git-1" class="headerlink" title="安装Git"></a>安装Git</h2><p>CentOS7中虽然自带Git，不过依然需要更新，过程有点麻烦<br>先安装Git的依赖包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure></p>
+<p>删除已有的Git：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure></p>
+<p>下载&amp;安装Git源码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.gz</span><br><span class="line">tar xzf git-2.20.1.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> git-2.20.1</span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git all</span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git install</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export PATH=<span class="variable">$PATH</span>:/usr/local/git/bin"</span> &gt;&gt; /etc/bashrc</span><br><span class="line"><span class="built_in">source</span> /etc/bashrc</span><br></pre></td></tr></table></figure></p>
+<p>查看当前版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line">git version 2.20.1</span><br></pre></td></tr></table></figure></p>
+<p>记得使用前输入个人信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name+空格+你的名字</span><br><span class="line">git config --global user.email+空格+你的邮箱</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建Git用户"><a href="#创建Git用户" class="headerlink" title="创建Git用户"></a>创建Git用户</h2><p>创建用户，设置密码并赋予sudo权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adduser git`</span><br><span class="line">passwd git`</span><br><span class="line">chmod 740 /etc/sudoers</span><br><span class="line">vi /etc/sudoers</span><br></pre></td></tr></table></figure></p>
+<p>添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root ALL=(ALL:ALL) ALL</span><br><span class="line">git ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></p>
+<p>再修改回文件权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 440 /etc/sudoers</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置ssh登陆"><a href="#配置ssh登陆" class="headerlink" title="配置ssh登陆"></a>配置ssh登陆</h2><p>生成密钥：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa`</span><br></pre></td></tr></table></figure></p>
+<p>直接回车会在~/.ssh目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure></p>
+<p>密钥下载到本地，公钥改名</p>
+<p>设置authorized_keys文件的权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">cp id_rsa.pub authorized_keys</span><br><span class="line">chmod 700 authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>修改sshd_config：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config`</span><br></pre></td></tr></table></figure></p>
+<p>找到下面代码前的#并删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure></p>
+<p>重启ssh服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure></p>
+<p>切换git用户，创建.ssh文件夹：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line"><span class="built_in">cd</span> /home/git</span><br><span class="line">mkdir ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p>创建authorized_keys文件并把刚才下载密钥内容粘贴进去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>修改以下两处的权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~/.ssh/authorzied_keys</span><br><span class="line">chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p>这时候可以在本地通过终端<code>ssh git@vps地址</code>测试能否登陆</p>
+<h2 id="创建git裸库"><a href="#创建git裸库" class="headerlink" title="创建git裸库"></a>创建git裸库</h2><p>返回git目录，使用git用户创建git裸仓库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git</span><br><span class="line">git init --bare blog.git</span><br></pre></td></tr></table></figure></p>
+<p>创建网站目录：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www</span><br><span class="line">mkdir blog</span><br><span class="line">chown git:git -R /var/www/blog</span><br></pre></td></tr></table></figure></p>
+<p>检查三个权限：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll -a /var/www/</span><br><span class="line">ll -a /home/git/</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置git-hooks"><a href="#配置git-hooks" class="headerlink" title="配置git-hooks"></a>配置git-hooks</h2><p>编辑<code>post-receive</code>文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line"><span class="built_in">cd</span> /home/git/blog.git/hooks</span><br><span class="line">vi post-receive</span><br></pre></td></tr></table></figure></p>
+<p>输入以下代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/home/git --git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
+<p>赋予<code>post-receive</code>执行权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x post-receive</span><br></pre></td></tr></table></figure></p>
+<p>最后将git目录所有权设置为<code>git</code>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git</span><br><span class="line">chown -R git:git hexo.git</span><br></pre></td></tr></table></figure></p>
+<p>至此服务器端的配置结束</p>
+<h1 id="实现自动化部署"><a href="#实现自动化部署" class="headerlink" title="实现自动化部署"></a>实现自动化部署</h1><p>回到本地端，修改Hexo目录下的<code>_config.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">      type: git</span><br><span class="line">      repo: git@服务器地址:/home/git/hexo.git</span><br><span class="line">      branch: master</span><br></pre></td></tr></table></figure></p>
+<p>安装git的push插件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>最后将本地目录生成静态网页并推送到VPS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
+<p>完事</p>
+<h1 id="总结流程坑点"><a href="#总结流程坑点" class="headerlink" title="总结流程坑点"></a>总结流程坑点</h1><p>1.没搞清本地的hexo安装路径<br>2.没搞清远程的hexo安装路径<br>3.nginx的<code>default.conf</code>配置问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root   /home/git/thouther;</span><br></pre></td></tr></table></figure></p>
+<p>4.hooks里的<code>post-receive</code>配置问题<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/home/git/thouther/--git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p>1.<a href="https://www.jianshu.com/p/b1eeb3f1a2c1" target="_blank" rel="noopener">linux使用密钥+密码登录ssh（centos7）</a><br>2.<a href="http://www.zigma.cc/2018/06/27/%E3%80%90Hexo%E3%80%91%E4%BB%8EWordpress%E8%BD%ACHexo%E7%9A%84%E9%82%A3%E4%BA%9B%E6%B7%B1%E5%9D%91/#%C2%B7-%E6%B7%BB%E5%8A%A0Nginx%E5%88%B0YUM%E6%BA%90" target="_blank" rel="noopener">【Hexo】从Wordpress转Hexo的那些深坑</a><br>3.<a href="https://pengloo53.gitbooks.io/hexo/" target="_blank" rel="noopener">Hexo小书</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本地部署Hexo"><span class="toc-number">1.</span> <span class="toc-text">本地部署Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">1.1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">配置Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPS部署Hexo"><span class="toc-number">2.</span> <span class="toc-text">VPS部署Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Nginx"><span class="toc-number">2.1.</span> <span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git-1"><span class="toc-number">2.2.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Git用户"><span class="toc-number">2.3.</span> <span class="toc-text">创建Git用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置ssh登陆"><span class="toc-number">2.4.</span> <span class="toc-text">配置ssh登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建git裸库"><span class="toc-number">2.5.</span> <span class="toc-text">创建git裸库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置git-hooks"><span class="toc-number">2.6.</span> <span class="toc-text">配置git-hooks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现自动化部署"><span class="toc-number">3.</span> <span class="toc-text">实现自动化部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结流程坑点"><span class="toc-number">4.</span> <span class="toc-text">总结流程坑点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-number">5.</span> <span class="toc-text">参考文章</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&text=在Ubuntu下部署Hexo到VPS"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&is_video=false&description=在Ubuntu下部署Hexo到VPS"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在Ubuntu下部署Hexo到VPS&body=Check out this article: http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://thouther.com/2019/01/23/在Ubuntu下部署Hexo到VPS/&name=在Ubuntu下部署Hexo到VPS&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 thouther
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
