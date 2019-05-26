@@ -10,7 +10,7 @@
 <meta name="keywords" content="避坑,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Win10&#x2F;Ubuntu双系统的安装操作">
-<meta property="og:url" content="https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/index.html">
+<meta property="og:url" content="https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/index.html">
 <meta property="og:site_name" content="thouther">
 <meta property="og:description" content="双系统 or 虚拟机？一个是真实的操作系统，另一个只是Windows上的模拟器。如果不想去面对双系统环境下有点复杂的硬盘数据管理问题，虚拟机的存在就是为我们提供便利的权宜之计。但是如果想更深入去感受Linux的魅力，首先你要做的就是：彻底告别Windows！  准备阶段完全投身Linux之前，各方面的准备必须充足，毕竟涉及到关键的硬盘数据，网上据说因为装双系统把windows也赔进去的选手不在少">
 <meta property="og:locale" content="default">
@@ -24,27 +24,27 @@
     
         
           
-              <link rel="shortcut icon" href="/hexo-blog/images/favicon.ico">
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
           
         
         
           
-            <link rel="icon" type="image/png" href="/hexo-blog/images/favicon-192x192.png" sizes="192x192">
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/hexo-blog/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
           
         
     
     <!-- title -->
     <title>Win10/Ubuntu双系统的安装操作</title>
     <!-- styles -->
-    <link rel="stylesheet" href="/hexo-blog/css/style.css">
+    <link rel="stylesheet" href="/blog/css/style.css">
     <!-- persian styles -->
     
-      <link rel="stylesheet" href="/hexo-blog/css/rtl.css">
+      <link rel="stylesheet" href="/blog/css/rtl.css">
     
     <!-- rss -->
     
@@ -61,11 +61,11 @@
     <span id="nav">
       <ul>
          
-          <li><a href="/hexo-blog/">Home</a></li>
+          <li><a href="/blog/">Home</a></li>
          
-          <li><a href="/hexo-blog/about/">About</a></li>
+          <li><a href="/blog/about/">About</a></li>
          
-          <li><a href="/hexo-blog/archives/">Writing</a></li>
+          <li><a href="/blog/archives/">Writing</a></li>
         
       </ul>
     </span>
@@ -73,10 +73,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/blog/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/hexo-blog/2019/01/22/2019，新环境，新的开始/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/blog/2019/01/22/2019，新环境，新的开始/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -89,16 +89,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&text=Win10/Ubuntu双系统的安装操作"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&is_video=false&description=Win10/Ubuntu双系统的安装操作"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Win10/Ubuntu双系统的安装操作&body=Check out this article: https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&name=Win10/Ubuntu双系统的安装操作&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&text=Win10/Ubuntu双系统的安装操作"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&is_video=false&description=Win10/Ubuntu双系统的安装操作"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Win10/Ubuntu双系统的安装操作&body=Check out this article: https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&name=Win10/Ubuntu双系统的安装操作&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -138,7 +138,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/hexo-blog/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/hexo-blog/tags/避坑/">避坑</a>
+        <a class="tag-link" href="/blog/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/blog/tags/避坑/">避坑</a>
     </div>
 
 
@@ -242,11 +242,11 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/hexo-blog/">Home</a></li>
+          <li><a href="/blog/">Home</a></li>
          
-          <li><a href="/hexo-blog/about/">About</a></li>
+          <li><a href="/blog/about/">About</a></li>
          
-          <li><a href="/hexo-blog/archives/">Writing</a></li>
+          <li><a href="/blog/archives/">Writing</a></li>
         
       </ul>
     </div>
@@ -257,16 +257,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&text=Win10/Ubuntu双系统的安装操作"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&is_video=false&description=Win10/Ubuntu双系统的安装操作"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Win10/Ubuntu双系统的安装操作&body=Check out this article: https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&name=Win10/Ubuntu双系统的安装操作&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&text=Win10/Ubuntu双系统的安装操作"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&is_video=false&description=Win10/Ubuntu双系统的安装操作"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Win10/Ubuntu双系统的安装操作&body=Check out this article: https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&title=Win10/Ubuntu双系统的安装操作"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/blog/2019/01/23/Win10-Ubuntu双系统的安装操作/&name=Win10/Ubuntu双系统的安装操作&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -290,11 +290,11 @@
     <nav>
       <ul>
          
-          <li><a href="/hexo-blog/">Home</a></li>
+          <li><a href="/blog/">Home</a></li>
          
-          <li><a href="/hexo-blog/about/">About</a></li>
+          <li><a href="/blog/about/">About</a></li>
          
-          <li><a href="/hexo-blog/archives/">Writing</a></li>
+          <li><a href="/blog/archives/">Writing</a></li>
         
       </ul>
     </nav>
@@ -303,13 +303,13 @@
 
     </div>
     <!-- styles -->
-<link rel="stylesheet" href="/hexo-blog/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/hexo-blog/lib/justified-gallery/css/justifiedGallery.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/justified-gallery/css/justifiedGallery.min.css">
 
     <!-- jquery -->
-<script src="/hexo-blog/lib/jquery/jquery.min.js"></script>
-<script src="/hexo-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/hexo-blog/js/main.js"></script>
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+<script src="/blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/js/main.js"></script>
 <!-- search -->
 
 <!-- Google Analytics -->
