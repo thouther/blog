@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thouther.com/"/>
-  <updated>2019-02-16T16:41:32.500Z</updated>
+  <updated>2019-01-26T15:19:34.979Z</updated>
   <id>http://thouther.com/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>初步了解全栈之路</title>
-    <link href="http://thouther.com/2019/02/16/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3%E5%85%A8%E6%A0%88%E4%B9%8B%E8%B7%AF/"/>
-    <id>http://thouther.com/2019/02/16/初步了解全栈之路/</id>
-    <published>2019-02-16T13:51:52.000Z</published>
-    <updated>2019-02-16T16:41:32.500Z</updated>
-    
-    <content type="html"><![CDATA[<p>自从用上了思维导图之后，就开始倾向于从宏观的角度去解决问题，对于一件将要学习的事物，首先捕捉出完整的布局，再按照脉络和分支进行详细的计划安排。<br>这种做法最直观的优点就是：</p><ul><li>将任务细分为多个阶段，保持学习热情的活跃</li><li>清楚自己处于什么位置，督促自己的学习进度</li></ul><p>回到程序员自身，最初入门的时候无一例外地一头扎进了某个热门语言中，自学到半路又开始怀疑人生：学习的目的在哪里，这门语言的用处在哪里，和其他语言的区别又在哪里……在目标缺失的情况下逐渐被那些语法函数高级特性撞晕了头脑，最后彻底打不起精神导致计划不了了之。</p><p>最近在油管观看了几个介绍IT全貌的视频，突然间豁然开朗，终于认识到了自己学习某种语言，是为了在整个工程下的某个位置，发挥出什么样的作用，一下子打开了我对整个业界的了解，简直相见恨晚。要是当初有人提前告诉我如此重要的信息，至少可以避免后来多次半途而废而导致的无用功，可惜想要高人指点，对我这种不善开口求助的自闭儿童来说也是个伪命题。</p><p>既然比别人开窍得晚，就好好把握当下吧。</p><h2 id="何为全栈（Full-Stack）"><a href="#何为全栈（Full-Stack）" class="headerlink" title="何为全栈（Full Stack）"></a>何为全栈（Full Stack）</h2><p>通常来说就是全能型选手，掌握的技能涵盖整个工程的每一处角落，能够将整个项目从头到尾独立完成，属于程序员的顶级形态。但是又有人认为这种大而全，全而不精，拥有广度而失去精度，过于理想化，所以这里取一个折中：</p><p><strong>一专多能</strong> ： 专精一项技能，同时基础技能多样化</p><h2 id="选择职业"><a href="#选择职业" class="headerlink" title="选择职业"></a>选择职业</h2><p>除了程序员还有别的选择吗？当然没有（划掉）<br>程序员，即开发者，从主流来说大致分为以下四类</p><ul><li>网页开发者（Web Developer）</li><li>应用开发者（Application Developer）</li><li>系统开发者（System Developer）</li><li>游戏开发者（Game Developer）<br>不出意外地话，我的选择应该是<strong>网页开发者</strong>，我自己的定位也觉得是”搞前端的“</li></ul><p>附上github比较知名的网页开发者学习路线大全<br><a href="https://github.com/kamranahmedse/developer-roadmap" target="_blank" rel="noopener">https://github.com/kamranahmedse/developer-roadmap</a></p><h2 id="基础技能"><a href="#基础技能" class="headerlink" title="基础技能"></a>基础技能</h2><p><img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/intro.png" alt=""></p><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h3 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h3><h3 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h3><h3 id="SOLID-KISS-YAGNI原则"><a href="#SOLID-KISS-YAGNI原则" class="headerlink" title="SOLID KISS YAGNI原则"></a>SOLID KISS YAGNI原则</h3><h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><h3 id="Licenses"><a href="#Licenses" class="headerlink" title="Licenses"></a>Licenses</h3><h3 id="语义化版本"><a href="#语义化版本" class="headerlink" title="语义化版本"></a>语义化版本</h3><h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><h3 id="HTTP-HTTPS-和-API"><a href="#HTTP-HTTPS-和-API" class="headerlink" title="HTTP / HTTPS 和 API"></a>HTTP / HTTPS 和 API</h3><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><h2 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h2><p><img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/frontend.png" alt=""></p><h3 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML / CSS"></a>HTML / CSS</h3><p>最基础的网页中内容与框架</p><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>设计较为复杂的高级网页</p><h3 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h3><p>为JavaScript提供更方便的库</p><h2 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h2><p><img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/backend.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;自从用上了思维导图之后，就开始倾向于从宏观的角度去解决问题，对于一件将要学习的事物，首先捕捉出完整的布局，再按照脉络和分支进行详细的计划安排。&lt;br&gt;这种做法最直观的优点就是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将任务细分为多个阶段，保持学习热情的活跃&lt;/li&gt;
-&lt;li&gt;清楚自己处
-      
-    
-    </summary>
-    
-    
-      <category term="学习" scheme="http://thouther.com/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="全栈" scheme="http://thouther.com/tags/%E5%85%A8%E6%A0%88/"/>
-    
-  </entry>
   
   <entry>
     <title>Ubuntu上手记录—基础篇</title>
