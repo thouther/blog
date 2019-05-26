@@ -5,9 +5,9 @@
   
   <link href="/hexo-blog/atom.xml" rel="self"/>
   
-  <link href="https://thouther.github.io/"/>
+  <link href="https://thouther.github.io/hexo-blog/"/>
   <updated>2019-05-26T08:01:10.864Z</updated>
-  <id>https://thouther.github.io/</id>
+  <id>https://thouther.github.io/hexo-blog/</id>
   
   <author>
     <name>thouther</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Ubuntu上手记录—基础篇</title>
-    <link href="https://thouther.github.io/2019/01/24/Ubuntu%E4%B8%8A%E6%89%8B%E8%AE%B0%E5%BD%95/"/>
-    <id>https://thouther.github.io/2019/01/24/Ubuntu上手记录/</id>
+    <link href="https://thouther.github.io/hexo-blog/2019/01/24/Ubuntu%E4%B8%8A%E6%89%8B%E8%AE%B0%E5%BD%95/"/>
+    <id>https://thouther.github.io/hexo-blog/2019/01/24/Ubuntu上手记录/</id>
     <published>2019-01-24T02:34:21.000Z</published>
     <updated>2019-05-26T08:01:10.864Z</updated>
     
@@ -36,14 +36,14 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://thouther.github.io/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://thouther.github.io/hexo-blog/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>在Ubuntu下部署Hexo到VPS</title>
-    <link href="https://thouther.github.io/2019/01/23/%E5%9C%A8Ubuntu%E4%B8%8B%E9%83%A8%E7%BD%B2Hexo%E5%88%B0VPS/"/>
-    <id>https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/</id>
+    <link href="https://thouther.github.io/hexo-blog/2019/01/23/%E5%9C%A8Ubuntu%E4%B8%8B%E9%83%A8%E7%BD%B2Hexo%E5%88%B0VPS/"/>
+    <id>https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/</id>
     <published>2019-01-23T09:46:21.000Z</published>
     <updated>2019-05-26T08:03:02.441Z</updated>
     
@@ -62,18 +62,18 @@
     </summary>
     
     
-      <category term="避坑" scheme="https://thouther.github.io/tags/%E9%81%BF%E5%9D%91/"/>
+      <category term="避坑" scheme="https://thouther.github.io/hexo-blog/tags/%E9%81%BF%E5%9D%91/"/>
     
-      <category term="Ubuntu" scheme="https://thouther.github.io/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://thouther.github.io/hexo-blog/tags/Ubuntu/"/>
     
-      <category term="hexo" scheme="https://thouther.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="https://thouther.github.io/hexo-blog/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>Win10/Ubuntu双系统的安装操作</title>
-    <link href="https://thouther.github.io/2019/01/23/Win10-Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C/"/>
-    <id>https://thouther.github.io/2019/01/23/Win10-Ubuntu双系统的安装操作/</id>
+    <link href="https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C/"/>
+    <id>https://thouther.github.io/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/</id>
     <published>2019-01-23T09:32:38.000Z</published>
     <updated>2019-05-26T08:11:00.408Z</updated>
     
@@ -90,16 +90,16 @@
     </summary>
     
     
-      <category term="避坑" scheme="https://thouther.github.io/tags/%E9%81%BF%E5%9D%91/"/>
+      <category term="避坑" scheme="https://thouther.github.io/hexo-blog/tags/%E9%81%BF%E5%9D%91/"/>
     
-      <category term="Ubuntu" scheme="https://thouther.github.io/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://thouther.github.io/hexo-blog/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>2019，新环境，新的开始</title>
-    <link href="https://thouther.github.io/2019/01/22/2019%EF%BC%8C%E6%96%B0%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
-    <id>https://thouther.github.io/2019/01/22/2019，新环境，新的开始/</id>
+    <link href="https://thouther.github.io/hexo-blog/2019/01/22/2019%EF%BC%8C%E6%96%B0%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
+    <id>https://thouther.github.io/hexo-blog/2019/01/22/2019，新环境，新的开始/</id>
     <published>2019-01-22T13:24:41.000Z</published>
     <updated>2019-05-26T07:55:05.293Z</updated>
     
@@ -116,7 +116,7 @@
     </summary>
     
     
-      <category term="学习" scheme="https://thouther.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://thouther.github.io/hexo-blog/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
