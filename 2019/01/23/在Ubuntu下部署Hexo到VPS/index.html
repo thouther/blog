@@ -10,7 +10,7 @@
 <meta name="keywords" content="避坑,Ubuntu,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Ubuntu下部署Hexo到VPS">
-<meta property="og:url" content="https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/index.html">
+<meta property="og:url" content="https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/index.html">
 <meta property="og:site_name" content="thouther">
 <meta property="og:description" content="把之前在Windows上部署Hexo的文章重新写一遍，这次系统换成了Ubuntu，对于整个部署流程也有了一个更清晰的了解，加上VPS那边无需改动，整个操作一气呵成  本地环境：Ubuntu 18.04 LTS VPS：CentOS7（搬瓦工+万网域名）   本地部署HexoHexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown(或其他渲染引擎)解析文章，在几秒内，即可利用靓丽的主">
 <meta property="og:locale" content="default">
@@ -22,27 +22,27 @@
     
         
           
-              <link rel="shortcut icon" href="/images/favicon.ico">
+              <link rel="shortcut icon" href="/hexo-blog/images/favicon.ico">
           
         
         
           
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            <link rel="icon" type="image/png" href="/hexo-blog/images/favicon-192x192.png" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/hexo-blog/images/apple-touch-icon.png">
           
         
     
     <!-- title -->
     <title>在Ubuntu下部署Hexo到VPS</title>
     <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/hexo-blog/css/style.css">
     <!-- persian styles -->
     
-      <link rel="stylesheet" href="/css/rtl.css">
+      <link rel="stylesheet" href="/hexo-blog/css/rtl.css">
     
     <!-- rss -->
     
@@ -59,11 +59,11 @@
     <span id="nav">
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/hexo-blog/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/hexo-blog/about/">About</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/hexo-blog/archives/">Writing</a></li>
         
       </ul>
     </span>
@@ -71,10 +71,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/01/24/Ubuntu上手记录/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/hexo-blog/2019/01/24/Ubuntu上手记录/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/hexo-blog/2019/01/23/Win10-Ubuntu双系统的安装操作/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -87,16 +87,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&text=在Ubuntu下部署Hexo到VPS"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&is_video=false&description=在Ubuntu下部署Hexo到VPS"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=在Ubuntu下部署Hexo到VPS&body=Check out this article: https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&name=在Ubuntu下部署Hexo到VPS&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&text=在Ubuntu下部署Hexo到VPS"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&is_video=false&description=在Ubuntu下部署Hexo到VPS"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在Ubuntu下部署Hexo到VPS&body=Check out this article: https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&name=在Ubuntu下部署Hexo到VPS&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -136,7 +136,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/避坑/">避坑</a>
+        <a class="tag-link" href="/hexo-blog/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/hexo-blog/tags/hexo/">hexo</a>, <a class="tag-link" href="/hexo-blog/tags/避坑/">避坑</a>
     </div>
 
 
@@ -226,11 +226,11 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/hexo-blog/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/hexo-blog/about/">About</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/hexo-blog/archives/">Writing</a></li>
         
       </ul>
     </div>
@@ -241,16 +241,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&text=在Ubuntu下部署Hexo到VPS"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&is_video=false&description=在Ubuntu下部署Hexo到VPS"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=在Ubuntu下部署Hexo到VPS&body=Check out this article: https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/hexo-blog/2019/01/23/在Ubuntu下部署Hexo到VPS/&name=在Ubuntu下部署Hexo到VPS&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&text=在Ubuntu下部署Hexo到VPS"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&is_video=false&description=在Ubuntu下部署Hexo到VPS"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在Ubuntu下部署Hexo到VPS&body=Check out this article: https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&title=在Ubuntu下部署Hexo到VPS"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thouther.github.io/2019/01/23/在Ubuntu下部署Hexo到VPS/&name=在Ubuntu下部署Hexo到VPS&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -274,11 +274,11 @@
     <nav>
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/hexo-blog/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/hexo-blog/about/">About</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/hexo-blog/archives/">Writing</a></li>
         
       </ul>
     </nav>
@@ -287,13 +287,13 @@
 
     </div>
     <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+<link rel="stylesheet" href="/hexo-blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/hexo-blog/lib/justified-gallery/css/justifiedGallery.min.css">
 
     <!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="/hexo-blog/lib/jquery/jquery.min.js"></script>
+<script src="/hexo-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/hexo-blog/js/main.js"></script>
 <!-- search -->
 
 <!-- Google Analytics -->
