@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="上文聊完对Arch感受，这里进入实用的正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境 科普什么是窗口管理器一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：  Stacking 堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。 Win，Mac以及大部分主流L">
+    <meta name="description" content="前文： 进入正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境 什么是窗口管理器一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：  Stacking 堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。Win，Mac以及大部分主流Linux桌面都采用堆叠窗口。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arch上手记录-i3+cli两大邪教">
 <meta property="og:url" content="https://thouther.github.io/blog/2019/06/02/Arch上手记录-Tiling-cli两大邪教/index.html">
 <meta property="og:site_name" content="thouther">
-<meta property="og:description" content="上文聊完对Arch感受，这里进入实用的正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境 科普什么是窗口管理器一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：  Stacking 堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。 Win，Mac以及大部分主流L">
+<meta property="og:description" content="前文： 进入正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境 什么是窗口管理器一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：  Stacking 堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。Win，Mac以及大部分主流Linux桌面都采用堆叠窗口。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-02T06:29:31.240Z">
+<meta property="og:image" content="https://i.loli.net/2019/06/02/5cf398f4e92f469629.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/02/5cf3dbcdbcb2b73564.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/03/5cf3f72835ba279022.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/03/5cf3ffcc7344b50388.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/03/5cf402a98d51c72627.png">
+<meta property="og:updated_time" content="2019-06-02T17:18:53.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arch上手记录-i3+cli两大邪教">
-<meta name="twitter:description" content="上文聊完对Arch感受，这里进入实用的正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境 科普什么是窗口管理器一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：  Stacking 堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。 Win，Mac以及大部分主流L">
+<meta name="twitter:description" content="前文： 进入正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境 什么是窗口管理器一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：  Stacking 堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。Win，Mac以及大部分主流Linux桌面都采用堆叠窗口。">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/02/5cf398f4e92f469629.png">
     
     
         
@@ -96,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#科普"><span class="toc-number">1.</span> <span class="toc-text">科普</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是窗口管理器"><span class="toc-number">1.1.</span> <span class="toc-text">什么是窗口管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是CLI"><span class="toc-number">1.2.</span> <span class="toc-text">什么是CLI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#I3"><span class="toc-number">1.2.1.</span> <span class="toc-text">I3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yay"><span class="toc-number">1.2.2.</span> <span class="toc-text">yay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zsh"><span class="toc-number">1.2.3.</span> <span class="toc-text">zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux"><span class="toc-number">1.2.4.</span> <span class="toc-text">Tmux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ranger"><span class="toc-number">1.2.5.</span> <span class="toc-text">ranger</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是窗口管理器"><span class="toc-number">1.</span> <span class="toc-text">什么是窗口管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是CLI"><span class="toc-number">2.</span> <span class="toc-text">什么是CLI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i3-Cli"><span class="toc-number">3.</span> <span class="toc-text">i3+Cli</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core"><span class="toc-number">4.</span> <span class="toc-text">[Core]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yay"><span class="toc-number">4.1.</span> <span class="toc-text">yay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i3"><span class="toc-number">4.2.</span> <span class="toc-text">i3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim"><span class="toc-number">4.3.</span> <span class="toc-text">Vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Termite"><span class="toc-number">4.4.</span> <span class="toc-text">Termite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ranger"><span class="toc-number">4.5.</span> <span class="toc-text">ranger</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Community"><span class="toc-number">5.</span> <span class="toc-text">[Community]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux"><span class="toc-number">5.1.</span> <span class="toc-text">Tmux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compton"><span class="toc-number">5.2.</span> <span class="toc-text">Compton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rofi"><span class="toc-number">5.3.</span> <span class="toc-text">rofi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dunst"><span class="toc-number">5.4.</span> <span class="toc-text">dunst</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tlp"><span class="toc-number">5.5.</span> <span class="toc-text">tlp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mpd-ncmpcpp-cmus"><span class="toc-number">5.6.</span> <span class="toc-text">mpd + ncmpcpp / cmus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zathura"><span class="toc-number">5.7.</span> <span class="toc-text">zathura</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mpv"><span class="toc-number">5.8.</span> <span class="toc-text">mpv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#qemu-kvm"><span class="toc-number">5.9.</span> <span class="toc-text">qemu/kvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mutt"><span class="toc-number">5.10.</span> <span class="toc-text">mutt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#weechat"><span class="toc-number">5.11.</span> <span class="toc-text">weechat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extra"><span class="toc-number">6.</span> <span class="toc-text">[Extra]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bat"><span class="toc-number">6.1.</span> <span class="toc-text">bat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ncdu"><span class="toc-number">6.2.</span> <span class="toc-text">ncdu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gotop"><span class="toc-number">6.3.</span> <span class="toc-text">gotop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#taskbook"><span class="toc-number">6.4.</span> <span class="toc-text">taskbook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#youtube-dl"><span class="toc-number">6.5.</span> <span class="toc-text">youtube-dl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link"><span class="toc-number">7.</span> <span class="toc-text">[Link]</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -135,37 +141,99 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>上文聊完对Arch感受，这里进入实用的正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境</p>
-<h1 id="科普"><a href="#科普" class="headerlink" title="科普"></a>科普</h1><h2 id="什么是窗口管理器"><a href="#什么是窗口管理器" class="headerlink" title="什么是窗口管理器"></a>什么是窗口管理器</h2><p>一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：</p>
+    <p>前文：</p>
+<p>进入正题，利用i3+CLI打造一个彻底摆脱鼠标的操作环境</p>
+<h2 id="什么是窗口管理器"><a href="#什么是窗口管理器" class="headerlink" title="什么是窗口管理器"></a>什么是窗口管理器</h2><p>一个桌面环境通常包含几大核心组件，窗口管理器便是其中之一，主要负责用户对桌面窗口的交互行为。通常包含两种类型的窗口管理：</p>
 <ol>
 <li><p>Stacking</p>
-<p>堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。</p>
-<p>Win，Mac以及大部分主流Linux桌面都采用堆叠窗口。</p>
+<p>堆叠式窗口，最为普遍的类型，一般以鼠标操作为主，键盘辅助，可以任意拖动浮动窗口，窗口与窗口之间能够互相堆加在一起。Win，Mac以及大部分主流Linux桌面都采用堆叠窗口。</p>
 </li>
 <li><p>Tiling</p>
-<p>平铺式窗口，以键盘为操作核心的形式，抛弃了大部分鼠标操作，利用快捷键创建新窗口，同时管理器会自动调整新窗口位置，通过平铺形式提升界面的利用率。上手难度相对更大，但在定制化和效率上更佳。</p>
+<p>平铺式窗口，以键盘为操作核心的形式，抛弃了大部分鼠标操作，利用快捷键创建新窗口，同时管理器会自动调整新窗口位置，通过平铺形式提升界面的利用率。</p>
 </li>
 <li><p>Dynamic</p>
-<p>动态式ss窗口</p>
+<p>动态式窗口，可以随时切换上述两种风格，调整窗口大小。目前流行的非堆叠管理器都是以动态式为主，默认为Tiling模式。上手难度都比较大，需要花时间阅读说明书修改配置文件，并且不包含图形设置界面。</p>
 </li>
 </ol>
-<ul>
-<li><a href="https://wiki.archlinux.org/index.php/window_manager" target="_blank" rel="noopener">Window Manager介绍</a></li>
-</ul>
+<p>常见的WM例如i3，bspwm，Awesome，Openbox，dwm等等，这里选择了最适合入门的i3(下面提到)。</p>
+<p>扩展：<a href="https://wiki.archlinux.org/index.php/window_manager" target="_blank" rel="noopener">Window Manager介绍</a></p>
 <h2 id="什么是CLI"><a href="#什么是CLI" class="headerlink" title="什么是CLI"></a>什么是CLI</h2><p>Command Line Interface(命令行界面)，抛弃图形界面，以终端交互的形式进行运作的软件，通常都拥有以下几种属性：</p>
 <ol>
 <li>轻量级</li>
 <li>高效率，主打快捷键</li>
 <li>界面简洁透明</li>
 <li>可扩展性强</li>
-<li>不同CLI之间可以配合</li>
 </ol>
 <p>同时上手成本较高也是一个共同点，学会查阅文档是使用CLI应用的第一前提。</p>
-<p>专注于终端键盘操作这一性质完美契合了Tiling的逻辑，两者结合可以彻底放弃对鼠标的依赖。 </p>
-<h3 id="I3"><a href="#I3" class="headerlink" title="I3"></a>I3</h3><p>如果希望体验Tiling的高效简洁，i3是非常不错的选择。相比同类软件，i3在功能上相对偏少，不过胜在配置简单易懂，官网附带详细的说明文档，非常适合新人上手。</p>
-<p><a href="https://i3wm.org/" target="_blank" rel="noopener">i3官网</a></p>
-<h3 id="yay"><a href="#yay" class="headerlink" title="yay"></a>yay</h3><h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><h3 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h3><h3 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h3><p>###</p>
-<p>dsadasxzccxzcxzxzv cdaasd</p>
+<h2 id="i3-Cli"><a href="#i3-Cli" class="headerlink" title="i3+Cli"></a>i3+Cli</h2><p>专注于终端键盘操作这一性质完美契合了Tiling的逻辑，两者结合可以彻底放弃对鼠标的依赖(有触摸板的情况下还是会方便很多)</p>
+<p><img src="https://i.loli.net/2019/06/02/5cf398f4e92f469629.png" alt=""></p>
+<h2 id="Core"><a href="#Core" class="headerlink" title="[Core]"></a>[Core]</h2><h3 id="yay"><a href="#yay" class="headerlink" title="yay"></a>yay</h3><p>系统安装完成后，优先级第一的事情就是想办法接入AUR仓库，以下所有软件都可以在AUR中找到。</p>
+<p>AUR即Arch User Repository，经由社区用户提交并维护的软件仓库，采用编写PKGBUILD的形式，PKGBUILD文件中包含了指定软件的下载和拆包，获取源码后再次进行重新编译，而实现整个流程并包括解决最麻烦的编译工具和依赖问题，则需要一个AUR helper来完成.</p>
+<p>yay(Yet another Yogurt)，Go语言编写，代替不再维护的Yogurt，是目前Arch系中最受推崇的AUR helper。</p>
+<p><img src="https://i.loli.net/2019/06/02/5cf3dbcdbcb2b73564.png" alt=""></p>
+<p>下载：</p>
+<ol>
+<li><a href="https://github.com/Jguer/yay" target="_blank" rel="noopener">Github地址</a></li>
+<li>直接输入命令</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://aur.archlinux.org/yay.git</span><br><span class="line">cd yay</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+<h3 id="i3"><a href="#i3" class="headerlink" title="i3"></a>i3</h3><p>如果快速体验Tiling窗口的高效简洁，i3是非常不错的选择。相比同类软件，i3在功能上相对偏少，不过胜在配置简单易懂，官网附带详细的说明文档，非常适合新人上手。</p>
+<p>不过原版的i3wm缺少gaps功能，无法实现窗口之间的间隔，所以安装的时候选择另外一个fork版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay i3-gaps</span><br></pre></td></tr></table></figure>
+<p>配置文件在<code>~/.config/i3/config</code></p>
+<p>###　zsh</p>
+<p>Z Shell，作为Bash的同类，增加大量新特性，支持插件和主题，让命令行操作变得更加现代化</p>
+<p>完整zsh安装，包括目前在用的插件和主题，步骤如下</p>
+<ol>
+<li><p>安装Zsh本体</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay zsh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Oh-My-Zsh</p>
+<p>现成的Zsh配置，自带主题和插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Powerlevel9K主题</p>
+<p>强大的可自定义主题，详细配置参考<a href="https://github.com/bhilburn/powerlevel9k" target="_blank" rel="noopener">Github</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay zsh-theme-powerlevel9k</span><br></pre></td></tr></table></figure>
+<p>然后在<code>~/.zshrc</code>中加入<code>POWERLEVEL9K_MODE=&#39;awesome-fontconfig&#39;</code></p>
+</li>
+<li><p>安装Powerline Font</p>
+<p>使zsh主题中的特殊图标能够正常显示</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay awesome-terminal-fonts</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动插件</p>
+<p>之前的Ubuntu上手记录也安装了Zsh，不过当时体验尚浅，没有了解到zsh插件是何等便利的存在，下面我启用的插件，详细的插件作用参考<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins" target="_blank" rel="noopener">Wiki/Plugin</a>，配置出合适自己的组合，能够让你的shell变得爱不释手</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        themes</span><br><span class="line">        rand-quote</span><br><span class="line">        systemd</span><br><span class="line">        colored-man-pages</span><br><span class="line">        colorize</span><br><span class="line">        command-not-found</span><br><span class="line">        history</span><br><span class="line">        dirpersist</span><br><span class="line">        copydir</span><br><span class="line">        dircycle</span><br><span class="line">        jump</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>Vim，唯二的编辑器之一。学习Vim的语言彻底刷新我对Text Editor的想法，详细的介绍以后会另开一篇文章。</p>
+<p>此外想在Tiling环境变得更畅通无阻，Vim语言是最好的通行证，不过默认的Vim实在缺乏吸引力，空手配置<code>.vimrc</code>容易崩溃，好在有现成的Vim套餐——<a href="https://github.com/liuchengxu/space-vim-dark" target="_blank" rel="noopener">Space-vim</a></p>
+<p><img src="https://i.loli.net/2019/06/03/5cf3f72835ba279022.png" alt=""></p>
+<p>简单来讲就是多个Vim插件的合集，同时改变配置文本的规则，以及模块化的插件管理方式(参考<a href="https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md" target="_blank" rel="noopener">Layer</a>)，更适合新人快速上手。</p>
+<p>配置文件从<code>~/.vimrc</code>改为<code>~/.spacevim</code>，方便日后卸载时不影响到原vimrc的配置</p>
+<h3 id="Termite"><a href="#Termite" class="headerlink" title="Termite"></a>Termite</h3><p>既然是以终端操作为驱动，当然得选择一个合适的Terminal模拟器，然而试用完网上推荐的几种terminal之后发现各有各的问题…</p>
+<ul>
+<li>urxvt，对图标字符支持很糟糕</li>
+<li>xterm，美化支持糟糕</li>
+<li>st，配置方式太奇葩，加上补丁打不上</li>
+<li>kitty，不支持NerdFont字体</li>
+</ul>
+<p>……最后找到了Termite，虽然在图片显示上会有小bug，幸好其他基本完美，配置文件非常简单，关于终端的折腾可以暂告一段落。</p>
+<p>安装如下，配置文件在<code>~/.config/termite/config</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay termite</span><br></pre></td></tr></table></figure>
+<h3 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h3><p>内置vim-key的cli文件管理器，熟练常用快捷键再搭配vim语法，能打到吊打GUI的高速编辑效果。</p>
+<p><img src="https://i.loli.net/2019/06/03/5cf3ffcc7344b50388.png" alt=""></p>
+<p>安装如下，配置文件在<code>~/.config/ranger/rc.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay ranger</span><br></pre></td></tr></table></figure>
+<h2 id="Community"><a href="#Community" class="headerlink" title="[Community]"></a>[Community]</h2><h3 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h3><p>多终端管理工具，简单的说就是在一个大终端窗口下管理多个小终端，同时保存布局，窗口挂起，下次要用的时候可以快速回到原本状态</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay tmux</span><br></pre></td></tr></table></figure>
+<p>默认的tmux以及快捷键配置并不那么人性化，于是出现类似oh-my-zsh的现成配置<a href="https://github.com/gpakosz/.tmux" target="_blank" rel="noopener">.tmux</a>，配置文件从<code>~/.tmux</code>改为<code>~/.tmux.conf.local</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd</span><br><span class="line">git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line">ln -s -f .tmux/.tmux.conf</span><br><span class="line">cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/06/03/5cf402a98d51c72627.png" alt=""></p>
+<h3 id="Compton"><a href="#Compton" class="headerlink" title="Compton"></a>Compton</h3><p>给窗口界面带来毛玻璃､阴影透明､淡入淡出等时髦效果的合成管理器，另外默认compton并不支持毛玻璃，所以这里安装另一个fork版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay compton-tryone-git</span><br></pre></td></tr></table></figure>
+<p>之后在<code>~/.config/i3/config</code>中加入<code>exec --no-start-id compton --blur-method kawase</code>，便能够实现自启动了</p>
+<h3 id="rofi"><a href="#rofi" class="headerlink" title="rofi"></a>rofi</h3><h3 id="dunst"><a href="#dunst" class="headerlink" title="dunst"></a>dunst</h3><h3 id="tlp"><a href="#tlp" class="headerlink" title="tlp"></a>tlp</h3><h3 id="mpd-ncmpcpp-cmus"><a href="#mpd-ncmpcpp-cmus" class="headerlink" title="mpd + ncmpcpp / cmus"></a>mpd + ncmpcpp / cmus</h3><h3 id="zathura"><a href="#zathura" class="headerlink" title="zathura"></a>zathura</h3><h3 id="mpv"><a href="#mpv" class="headerlink" title="mpv"></a>mpv</h3><h3 id="qemu-kvm"><a href="#qemu-kvm" class="headerlink" title="qemu/kvm"></a>qemu/kvm</h3><h3 id="mutt"><a href="#mutt" class="headerlink" title="mutt"></a>mutt</h3><h3 id="weechat"><a href="#weechat" class="headerlink" title="weechat"></a>weechat</h3><h2 id="Extra"><a href="#Extra" class="headerlink" title="[Extra]"></a>[Extra]</h2><h3 id="bat"><a href="#bat" class="headerlink" title="bat"></a>bat</h3><h3 id="ncdu"><a href="#ncdu" class="headerlink" title="ncdu"></a>ncdu</h3><h3 id="gotop"><a href="#gotop" class="headerlink" title="gotop"></a>gotop</h3><h3 id="taskbook"><a href="#taskbook" class="headerlink" title="taskbook"></a>taskbook</h3><h3 id="youtube-dl"><a href="#youtube-dl" class="headerlink" title="youtube-dl"></a>youtube-dl</h3><h2 id="Link"><a href="#Link" class="headerlink" title="[Link]"></a>[Link]</h2><p><a href="https://wiki.archlinux.org/index.php/List_of_applications" target="_blank" rel="noopener">List of applications</a></p>
 
   </div>
 </article>
@@ -187,7 +255,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#科普"><span class="toc-number">1.</span> <span class="toc-text">科普</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是窗口管理器"><span class="toc-number">1.1.</span> <span class="toc-text">什么是窗口管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是CLI"><span class="toc-number">1.2.</span> <span class="toc-text">什么是CLI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#I3"><span class="toc-number">1.2.1.</span> <span class="toc-text">I3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yay"><span class="toc-number">1.2.2.</span> <span class="toc-text">yay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zsh"><span class="toc-number">1.2.3.</span> <span class="toc-text">zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux"><span class="toc-number">1.2.4.</span> <span class="toc-text">Tmux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ranger"><span class="toc-number">1.2.5.</span> <span class="toc-text">ranger</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是窗口管理器"><span class="toc-number">1.</span> <span class="toc-text">什么是窗口管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是CLI"><span class="toc-number">2.</span> <span class="toc-text">什么是CLI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i3-Cli"><span class="toc-number">3.</span> <span class="toc-text">i3+Cli</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core"><span class="toc-number">4.</span> <span class="toc-text">[Core]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yay"><span class="toc-number">4.1.</span> <span class="toc-text">yay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i3"><span class="toc-number">4.2.</span> <span class="toc-text">i3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim"><span class="toc-number">4.3.</span> <span class="toc-text">Vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Termite"><span class="toc-number">4.4.</span> <span class="toc-text">Termite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ranger"><span class="toc-number">4.5.</span> <span class="toc-text">ranger</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Community"><span class="toc-number">5.</span> <span class="toc-text">[Community]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux"><span class="toc-number">5.1.</span> <span class="toc-text">Tmux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compton"><span class="toc-number">5.2.</span> <span class="toc-text">Compton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rofi"><span class="toc-number">5.3.</span> <span class="toc-text">rofi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dunst"><span class="toc-number">5.4.</span> <span class="toc-text">dunst</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tlp"><span class="toc-number">5.5.</span> <span class="toc-text">tlp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mpd-ncmpcpp-cmus"><span class="toc-number">5.6.</span> <span class="toc-text">mpd + ncmpcpp / cmus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zathura"><span class="toc-number">5.7.</span> <span class="toc-text">zathura</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mpv"><span class="toc-number">5.8.</span> <span class="toc-text">mpv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#qemu-kvm"><span class="toc-number">5.9.</span> <span class="toc-text">qemu/kvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mutt"><span class="toc-number">5.10.</span> <span class="toc-text">mutt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#weechat"><span class="toc-number">5.11.</span> <span class="toc-text">weechat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extra"><span class="toc-number">6.</span> <span class="toc-text">[Extra]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bat"><span class="toc-number">6.1.</span> <span class="toc-text">bat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ncdu"><span class="toc-number">6.2.</span> <span class="toc-text">ncdu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gotop"><span class="toc-number">6.3.</span> <span class="toc-text">gotop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#taskbook"><span class="toc-number">6.4.</span> <span class="toc-text">taskbook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#youtube-dl"><span class="toc-number">6.5.</span> <span class="toc-text">youtube-dl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link"><span class="toc-number">7.</span> <span class="toc-text">[Link]</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
