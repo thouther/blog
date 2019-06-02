@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="thouther">
 <meta property="og:description" content="四个月下来我的Linux体验发生很大的变化，从Ubuntu转到了Arch Linux，从十几年的键鼠习惯转到了纯键盘(和触摸板)，手上的matebook从市场新宠成了绝版之子…… 本文不会涉及Arch系统的安装，主要是记录了最近更换系统后的感想以及用户体验的变化。 Keep it Simple,Stupid!  From Ubuntu…Ubuntu用了接近四个月，功能可以说应有尽有，满足了大部分">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-01T17:19:32.395Z">
+<meta property="og:updated_time" content="2019-06-02T06:14:27.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu上手记录-删除系统并踏上Arch之道">
 <meta name="twitter:description" content="四个月下来我的Linux体验发生很大的变化，从Ubuntu转到了Arch Linux，从十几年的键鼠习惯转到了纯键盘(和触摸板)，手上的matebook从市场新宠成了绝版之子…… 本文不会涉及Arch系统的安装，主要是记录了最近更换系统后的感想以及用户体验的变化。 Keep it Simple,Stupid!  From Ubuntu…Ubuntu用了接近四个月，功能可以说应有尽有，满足了大部分">
@@ -60,8 +60,6 @@
          
           <li><a href="/blog/">Home</a></li>
          
-          <li><a href="/blog/about/">About</a></li>
-         
           <li><a href="/blog/archives/">Writing</a></li>
         
       </ul>
@@ -69,6 +67,8 @@
     <br>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/blog/2019/06/02/Arch上手记录-Tiling-cli两大邪教/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/blog/2019/01/24/Ubuntu上手记录/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -98,7 +98,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Ubuntu…"><span class="toc-number">1.</span> <span class="toc-text">From Ubuntu…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#To-Arch-Linux"><span class="toc-number">2.</span> <span class="toc-text">To Arch Linux!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Arch-Way"><span class="toc-number">3.</span> <span class="toc-text">The Arch Way</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#More-is-Less"><span class="toc-number">4.</span> <span class="toc-text">More is Less</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-is-More"><span class="toc-number">5.</span> <span class="toc-text">Less is More</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Ubuntu…"><span class="toc-number">1.</span> <span class="toc-text">From Ubuntu…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#To-Arch-Linux"><span class="toc-number">2.</span> <span class="toc-text">To Arch Linux!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Arch-Way"><span class="toc-number">3.</span> <span class="toc-text">The Arch Way</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#More-is-Less"><span class="toc-number">4.</span> <span class="toc-text">More is Less</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-is-more"><span class="toc-number">5.</span> <span class="toc-text">Less is more</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -166,19 +166,19 @@
 </li>
 </ol>
 <p>在庞大的Linux发行版世界中，轻量级的系统可以说各有千秋，但是谈到方便的包管理，Arch系的pacman加上资源极其丰富的AUR(Arch User Repository)，综合多位用户体验得出一个吊打全场的评价，非常具有吸引力，下一个系统已经很明确了。</p>
-<h1 id="The-Arch-Way"><a href="#The-Arch-Way" class="headerlink" title="The Arch Way"></a>The Arch Way</h1><p>…经过一个周末的操作，终于成功地将系统迁移到了Arch，详细的安装过程以后重开一篇文章。</p>
+<h1 id="The-Arch-Way"><a href="#The-Arch-Way" class="headerlink" title="The Arch Way"></a>The Arch Way</h1><p>过一个周末的操作，终于成功地将系统迁移到了Arch，详细的安装过程以后重开一篇文章。</p>
 <p>先来介绍下Arch Linux的特点：</p>
 <ol>
 <li>轻量级系统，遵循KISS原则，提倡用户的自由度，软件的选择权，系统的打造，一切都由用户决定；</li>
 <li>采用滚动更新，保证一切软件都是最新版，收益与风险并存；</li>
-<li>强大的社区驱动之一：由用户自行提交的软件仓库AUR，拥有目前来说可能是最丰富的资源，解决了大量无必要的安装烦恼；</li>
+<li>强大的社区驱动之一：由用户自行提交的软件仓库AUR，拥有目前来说可能是最丰富的资源，解决了大量无比要的安装烦恼；</li>
 <li>强大的社区驱动之二：具有深度的用户群体，Arch的Wiki是深入Linux的一大圣地；</li>
 <li>针对x86-64架构的优化，加上轻量化而省去了许多复杂的兼容问题，天生具有明显的性能优势</li>
 </ol>
 <p>以上几点还不足以涵盖Arch的所有亮点，登上Arch官网甚至看不到任何形式的宣传，但是Arch早就在Linux用户圈中享有了一定的名气，不是上面的优势。而是出了名的“劝退”：</p>
 <ol>
-<li>纯命令行安装。尽管wiki上有极为详尽的步骤详解，但这点还是挡住了许多跃跃欲试Arch的选手</li>
-<li>过于精简所带来的折腾成本。解决了第一点不代表后面就能一帆风顺，上了Arch的贼船只保证系统可以正常启动，剩下的什么蓝牙，声音，显卡，电源，甚至是网络连接，这些最基础的设施其实都算“多余”的。</li>
+<li>纯命令行安装。尽管wiki上详尽的步骤详解，但这点还是挡住了许多跃跃欲试Arch的选手</li>
+<li>过于精简所带来的折腾成本。解决了第一点不代表后面就一帆风顺了，上了Arch的贼船只保证系统可以正常启动，剩下的什么蓝牙，声音，显卡，电源，甚至是网络连接，这些最基础的设施其实都算“多余”的。 </li>
 </ol>
 <p>较高的起步门槛+对用户选择权的重视，不难理解Arch在Linux用户群中形成的装逼之风，在r/unixporn之类的晒桌面交流中也有很高的出镜率。虽然理论上任何Linux发行版都支持用户的自定义，但是Arch更倾向于让用户去主动地进行选择，打造一个属于自己的Linux环境。</p>
 <p>在主打自定义的发行版圈子中，有Gentoo这种深入定制内核，一切采用源码编译的零加工系统，还有LFS(Linux From Scratch)这种真正从零开始的硬核玩法。Arch反而是属于低成本的入门级自定义，包管理的成熟又让用户可以高效地开展折腾环节，成为了大多数折腾怪心中的首选系统。</p>
@@ -187,12 +187,14 @@
 <p>再仔细思考会得出一个奇怪的结论：学习Linux可能比学Windows要“简单”。尽管大学里都有教授Linux的课程，却没有教大家如何使用Windows，毕竟每个大学生天天都在用，但实际上又多少人真正理解，因为根本无从下手。</p>
 <p>到了Linux的世界，排除企业版之类的特殊需求，Linux完全是由爱好者们组建起来的圈子，在没有市场因素的驱动下，用户/管理员/开发者之间就没有绝对的界限。所以主流的思维形式并不适用在Linux上，因为这时候我们不是消费者，没有任何规定要求发行版要保证用户可以享受舒适的体验，Arch这一流派就更加直白了：你们是计算机爱好者，是热衷于折腾新事物，与其妥协，更愿意投入时间和精力去学习的刁钻用户，我们就是为此而诞生的。</p>
 <p>所以”刁难”用户的理由很简单，不是用户选择了Arch，而且Arch选择了用户。</p>
-<h1 id="Less-is-More"><a href="#Less-is-More" class="headerlink" title="Less is More"></a>Less is More</h1><p>达芬奇的名言“Simplicity is the ultimate form of sophistication”，翻译为“简约是复杂的最终形式”，奉行“简”字的哲学一直是设计圈永恒不变的真理，我从到大也一直认为，一件产品，简单，好用，设计没有多余，用户一看就懂，这就是简约的哲学，这一点在倡导用户体验的消费电子市场已经得到充分的验证。</p>
+<h1 id="Less-is-more"><a href="#Less-is-more" class="headerlink" title="Less is more"></a>Less is more</h1><p>达芬奇的名言“Simplicity is the ultimate form of sophistication”，翻译为“简约是复杂的最终形式”，奉行“简”字的哲学一直是设计圈永恒不变的真理，我从到大也一直认为，一件产品，简单，好用，设计没有多余，用户一看就懂，这就是简约的哲学，这一点在倡导用户体验的消费电子市场已经得到充分的验证。</p>
 <p>那么追随KISS哲学的Arch Linux，又是如何展现自身的Simple呢?</p>
 <p>答案是————让用户明白，<strong>Linux从来不Simple</strong></p>
 <p>Arch的作者之一Aaron Griffin，有过这样的评价：</p>
 <blockquote>
+<blockquote>
 <p>If you try to hide the complexity of the system, you’ll end up with a more complex system.</p>
+</blockquote>
 <p>试图隐藏系统复杂性的结果，只会让系统变得更加复杂</p>
 </blockquote>
 <p>让不少人望而生畏的安装过程，就是一个绝佳的例子。</p>
@@ -206,9 +208,9 @@
 <li>选择时区</li>
 <li>设置字符编码</li>
 <li>下载编译工具</li>
-<li>etc…</li>
+<li>etc</li>
+<li>每一项操作，用CLI透明直观(和痛苦)的形式让用户深入“幕后”，建立起对系统最基础的认知，以确保在未来的使用过程中，一旦遇到问题可以迅速地锁定，并且期待用户逐掌握并拥有解决问题的能力。</li>
 </ul>
-<p>每一项操作，用CLI透明直观(和痛苦)的形式让用户深入“幕后”，建立起对系统最基础的认知，以确保在未来的使用过程中，一旦遇到问题可以迅速地锁定，并且期待用户逐掌握并拥有解决问题的能力。</p>
 <p>如果换成GUI模式的一笔带过，效果只会大打折扣，正如Araon Griffin所说，GUI用更复杂的系统，向用户隐藏了自身的复杂性，实际上也是在变相加大用户学习的门槛，最终伤害的也是终端用户本身。</p>
 <p>如今越来越Linux发行版走进了大众的视野，希望提供给用户更加“无痛”的体验，Linux的入门难度早就被大量稀释了，之前在油管上看过一部12年的Linux用户交流会(Why Linux Suck)，结论就是如果是早几年接触Linux，最后肯定会灰溜溜地滚回Win7。现在我却选择Arch这条贼船，不是想自虐(一开始是不知道后面各种酸爽的…)，而是在拥有一定Linux经验的基础下，出于深入学习的目的而作出的选择，Arch也非常欢迎这样的用户，更不用说堪称Linux学习宝库的ArchWiki。</p>
 <p>最后再总结一下，需要投入学习成本这件事情，和用户体验从来都是不冲突的，想起了之前疯狂沉迷的&lt;&lt;只狼&gt;&gt;，一个通过让玩家不断积累学习成本，直到产生质变，强势逆转用户体验的完美例子。只要你我都是计算机爱好者，明白并接受Arch流派逆其道而行的用心，从那一刻开始，沉淀了十几年的计算机体验才会迎来一场全新的，充满挑战的Jolly Ride!</p>
@@ -227,15 +229,13 @@
          
           <li><a href="/blog/">Home</a></li>
          
-          <li><a href="/blog/about/">About</a></li>
-         
           <li><a href="/blog/archives/">Writing</a></li>
         
       </ul>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Ubuntu…"><span class="toc-number">1.</span> <span class="toc-text">From Ubuntu…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#To-Arch-Linux"><span class="toc-number">2.</span> <span class="toc-text">To Arch Linux!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Arch-Way"><span class="toc-number">3.</span> <span class="toc-text">The Arch Way</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#More-is-Less"><span class="toc-number">4.</span> <span class="toc-text">More is Less</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-is-More"><span class="toc-number">5.</span> <span class="toc-text">Less is More</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Ubuntu…"><span class="toc-number">1.</span> <span class="toc-text">From Ubuntu…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#To-Arch-Linux"><span class="toc-number">2.</span> <span class="toc-text">To Arch Linux!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Arch-Way"><span class="toc-number">3.</span> <span class="toc-text">The Arch Way</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#More-is-Less"><span class="toc-number">4.</span> <span class="toc-text">More is Less</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-is-more"><span class="toc-number">5.</span> <span class="toc-text">Less is more</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -274,8 +274,6 @@
       <ul>
          
           <li><a href="/blog/">Home</a></li>
-         
-          <li><a href="/blog/about/">About</a></li>
          
           <li><a href="/blog/archives/">Writing</a></li>
         
